@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transfer Advisor — CIS 17A Project</title>
+<title>College Advisor — CIS 17A Project</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -12,7 +12,7 @@
     --mono:'JetBrains Mono',monospace;--sans:'Syne',sans-serif;--serif:'Literata',serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.7;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;}
 
   /* HEADER */
   header{background:var(--ink);padding:0 48px;display:flex;align-items:center;height:52px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.06);}
@@ -84,7 +84,7 @@
   .map-table tbody tr:hover td{background:#faf8f4;}
   .map-table .stage-cell{font-family:var(--sans);font-weight:600;font-size:13px;}
   .map-table .phase-cell{font-family:var(--mono);font-size:11px;color:var(--muted);}
-  .map-table .q-cell{font-style:italic;font-family:var(--serif);font-size:13px;}
+  .map-table .q-cell{font-style:italic;font-family:var(--sans);font-size:13px;}
   .map-table .algo-cell{font-family:var(--mono);font-size:11px;color:var(--accent2);}
   .map-table .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle;}
   .dot-live{background:var(--accent);}
@@ -110,7 +110,7 @@
 
   .scontent{padding:15px 18px;display:flex;flex-direction:column;justify-content:center;gap:7px;}
   .sq{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--ink);}
-  .sq em{font-style:italic;font-family:var(--serif);font-weight:300;color:var(--muted);font-size:13px;}
+  .sq em{font-style:italic;font-family:var(--sans);font-weight:300;color:var(--muted);font-size:13px;}
   .atags{display:flex;gap:5px;flex-wrap:wrap;}
   .at{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;background:rgba(58,123,232,0.07);color:var(--accent2);border:1px solid rgba(58,123,232,0.13);letter-spacing:0.03em;}
   .at.b2{background:rgba(58,123,232,0.11);border-color:rgba(58,123,232,0.2);}
@@ -226,6 +226,14 @@
     .map-table{font-size:12px;}
   }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZXCV23JM1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ZZXCV23JM1");
+</script>
 </head>
 <body>
 
@@ -233,7 +241,7 @@
   <div class="hd">
     <a href="index.html">CIS 17A</a>
     <span class="sep">›</span>
-    <span class="cur">Transfer Advisor — Project Arc</span>
+    <span class="cur">College Advisor — Project Arc</span>
   </div>
 </header>
 
@@ -241,7 +249,7 @@
   <div class="hgrid"></div><div class="hglow"></div>
   <div class="hc">
     <div class="heye">CIS 17A · Course Project · All 12 Weeks</div>
-    <h1>Transfer Advisor</h1>
+    <h1>College Advisor</h1>
     <p>An ML system that helps De Anza students find the right 4-year college to transfer to — built stage by stage as we learn each algorithm. Each stage answers a new question Alex has. Each limitation motivates the next one.</p>
     <div class="stage-pills">
       <span class="sp live">Stage 1 · Classification</span>
@@ -279,50 +287,53 @@
   </div>
 
   <div class="slabel" style="margin-top:40px;">Before we build anything</div>
-  <div class="stitle">Why is this hard to solve without ML?</div>
-  <div class="ssub">What would you do if you were Alex? And why does each approach break down?</div>
+  <div class="stitle">How would you decide which schools to apply to?</div>
+  <div class="ssub">If you were Alex — 3.4 GPA, CS major, 30 hours of work a week — how would you figure out which schools actually want a student like you? Let's look at the options.</div>
 
   <div class="wcards">
     <div class="wcard">
       <div class="wtrg" onclick="this.parentElement.classList.toggle('open')">
-        <span class="wic">📋</span>
-        <span class="wtitle">Write a rules list — "If GPA &gt; 3.5 and major is CS, apply to Cal Poly"</span>
-        <span class="wbadge">Breaks down</span>
+        <span class="wic">🌐</span>
+        <span class="wtitle">Look at college websites and rankings</span>
+        <span class="wbadge">Wrong information</span>
         <span class="wchev">▶</span>
       </div>
-      <div class="wbody">Rules conflict the moment two factors interact. What if GPA is 3.4 but the major is in high demand? What if the school changed its thresholds this year? Who updates 4,000 rules every admissions cycle? Rules can't capture the <em>combinations</em> that actually predict admission.</div>
+      <div class="wbody">College websites tell you what they want in an ideal student. Rankings tell you prestige. Neither tells you whether <em>you specifically</em> — your GPA, your major, your work hours — have a realistic shot. The intersection between what Alex wants and what the college will actually accept is invisible from the outside.</div>
     </div>
     <div class="wcard">
       <div class="wtrg" onclick="this.parentElement.classList.toggle('open')">
-        <span class="wic">📊</span>
-        <span class="wtitle">Build a weighted spreadsheet — score each school on GPA match, aid, location…</span>
-        <span class="wbadge">Breaks down</span>
+        <span class="wic">🗣️</span>
+        <span class="wtitle">Ask friends who transferred</span>
+        <span class="wbadge">Too thin</span>
         <span class="wchev">▶</span>
       </div>
-      <div class="wbody">Who decides GPA matters 3× more than location? Those weights are arbitrary — no data behind them. A student with a 3.2 GPA in CS might outperform one with a 3.8 in Business at schools that value STEM diversity. A spreadsheet can't learn those interactions.</div>
+      <div class="wbody">Your friend got into UC Santa Cruz with a 3.6 GPA in CS. Does that mean Alex will too, with a 3.4 and 30 work hours a week? Maybe. But that's one data point. What you need is the pattern across hundreds of students with profiles like Alex's. No individual friend can give you that.</div>
     </div>
     <div class="wcard">
       <div class="wtrg" onclick="this.parentElement.classList.toggle('open')">
         <span class="wic">🧑‍💼</span>
-        <span class="wtitle">Ask a transfer counselor — they've seen hundreds of students</span>
+        <span class="wtitle">Ask a transfer counselor — the best answer, but...</span>
         <span class="wbadge">Doesn't scale</span>
         <span class="wchev">▶</span>
       </div>
-      <div class="wbody">One counselor handles 500 students. Their experience is local and lives in their head — it can't be shared, audited, or scaled. ML doesn't replace the counselor. It gives every student access to the <em>pattern</em> a great counselor would recognize.</div>
+      <div class="wbody">This is the closest thing to a right answer. A counselor with ten years of experience has watched hundreds of students apply and seen what happened. They know intuitively which schools will bite and which won't — not because the college website says so, but because they've seen the pattern repeat. But there is one counselor for every 500 students. Their knowledge is private, lives in their head, and isn't available at midnight when Alex is filling out applications.</div>
     </div>
   </div>
 
-  <div class="callout">
-    <span class="ci">💡</span>
-    <span>When a problem has <strong>too many interacting factors</strong> for rules to capture, and we have <strong>historical examples</strong> to learn from — that is a machine learning problem. The algorithm learns the pattern from data. We don't write the rules.</span>
+  <!-- INSIGHT CARD — comes last, as the conclusion -->
+  <div style="background:var(--ink);border-radius:12px;padding:28px 32px;margin-top:20px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,135,58,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">So what do we do?</div>
+    <div style="font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--paper);line-height:1.5;margin-bottom:14px;">The counselor is the right answer — but they can't reach everyone. They've synthesized thousands of outcomes into an intuition. The question is: how do we give College Advisor that same knowledge?</div>
+    <div style="font-size:14px;color:#9ca3af;line-height:1.7;">We can't give a machine years of experience. But we can give it the data that experience was built on — thousands of real transfer outcomes from California community colleges. The machine finds the same pattern the counselor found. That's machine learning.</div>
   </div>
 
   <hr class="divider">
 
   <!-- PART 2: THE PROJECT ARC — OVERVIEW TABLE -->
   <div class="slabel">Part 2 — The Project Arc</div>
-  <div class="stitle">How Transfer Advisor evolves across the semester</div>
-  <div class="ssub">Each course phase adds a new algorithm family. Each Transfer Advisor stage unlocks a new question Alex can ask. Click any stage below to explore it.</div>
+  <div class="stitle">How College Advisor evolves across the semester</div>
+  <div class="ssub">Each course phase adds a new algorithm family. Each College Advisor stage unlocks a new question Alex can ask. Click any stage below to explore it.</div>
 
   <table class="map-table">
     <thead>
@@ -736,7 +747,7 @@
           <li>Alex describes her goals in natural language — the system understands and matches them to schools</li>
           <li>Neural networks learn richer representations of both students and schools</li>
           <li>LLMs generate personalized advice, not just predictions</li>
-          <li>The full Transfer Advisor becomes a conversational AI — built on everything from 17A</li>
+          <li>The full College Advisor becomes a conversational AI — built on everything from 17A</li>
         </ul>
         <div class="pipelabel">How it's built</div>
         <div class="pipeline">

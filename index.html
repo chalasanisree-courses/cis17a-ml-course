@@ -11,7 +11,7 @@
     --mono:'JetBrains Mono',monospace;--sans:'Syne',sans-serif;--serif:'Literata',serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.7;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;}
 
   header{background:var(--ink);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.06);}
   .hd-l{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;}
@@ -79,6 +79,14 @@
     .ptalink{display:none;}
   }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZXCV23JM1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ZZXCV23JM1");
+</script>
 </head>
 <body>
 
@@ -107,10 +115,10 @@
 <div class="pbanner">
   <div class="pbl">
     <div class="pbtag">Course Project — runs all 12 weeks</div>
-    <div class="pbtitle">Transfer Advisor</div>
+    <div class="pbtitle">College Advisor</div>
     <div class="pbdesc">An ML system helping De Anza students identify the right 4-year college — built stage by stage as we learn each algorithm family.</div>
   </div>
-  <a href="TransferAdvisor.html" class="pblink">View Project Arc ›</a>
+  <a href="CollegeAdvisor.html" class="pblink">View Project Arc ›</a>
 </div>
 
 <div class="main">
@@ -119,12 +127,12 @@
     <div class="phd">
       <span class="ptag">Phase 1 · Weeks 1–3</span>
       <span class="ptitle">Foundations — What is ML, and what does data look like?</span>
-      <span class="ptalink dim">Transfer Advisor · Setup</span>
+      <span class="ptalink dim">College Advisor · Setup</span>
     </div>
     <div class="weeks">
       <div class="wk">
         <div class="wkn">W1</div>
-        <div class="wkb"><div class="wktitle">What is Machine Learning?</div><div class="wktopics">Rules vs. ML · supervised vs. unsupervised · the ML pipeline · introducing Transfer Advisor</div></div>
+        <div class="wkb"><div class="wktitle">What is Machine Learning?</div><div class="wktopics">Rules vs. ML · supervised vs. unsupervised · the ML pipeline · introducing College Advisor</div></div>
         <div class="wkr"><span class="badge blive">Day 1 Demo</span></div>
       </div>
       <div class="wk dimmed">
@@ -144,7 +152,7 @@
     <div class="phd">
       <span class="ptag">Phase 2 · Weeks 4–6</span>
       <span class="ptitle">Classification — Predicting a category</span>
-      <a href="TransferAdvisor.html#stage1" class="ptalink">Transfer Advisor · Stage 1 ›</a>
+      <a href="CollegeAdvisor.html#stage1" class="ptalink">College Advisor · Stage 1 ›</a>
     </div>
     <div class="weeks">
       <div class="wk project">
@@ -159,7 +167,7 @@
       </div>
       <div class="wk project dimmed">
         <div class="wkn">W6</div>
-        <div class="wkb"><div class="wktitle">Evaluation Metrics</div><div class="wktopics">Accuracy · precision · recall · F1 · confusion matrix · which metric matters for Transfer Advisor?</div></div>
+        <div class="wkb"><div class="wktitle">Evaluation Metrics</div><div class="wktopics">Accuracy · precision · recall · F1 · confusion matrix · which metric matters for College Advisor?</div></div>
         <div class="wkr"><span class="badge bsoon">Coming</span></div>
       </div>
     </div>
@@ -169,7 +177,7 @@
     <div class="phd">
       <span class="ptag">Phase 3 · Weeks 7–8</span>
       <span class="ptitle">Regression — Predicting a number</span>
-      <a href="TransferAdvisor.html#stage2" class="ptalink">Transfer Advisor · Stage 2 ›</a>
+      <a href="CollegeAdvisor.html#stage2" class="ptalink">College Advisor · Stage 2 ›</a>
     </div>
     <div class="weeks">
       <div class="wk project dimmed">
@@ -189,7 +197,7 @@
     <div class="phd">
       <span class="ptag">Phase 4 · Weeks 9–10</span>
       <span class="ptitle">Unsupervised Learning — Finding structure without labels</span>
-      <a href="TransferAdvisor.html#stage3" class="ptalink">Transfer Advisor · Stage 3 ›</a>
+      <a href="CollegeAdvisor.html#stage3" class="ptalink">College Advisor · Stage 3 ›</a>
     </div>
     <div class="weeks">
       <div class="wk project dimmed">
@@ -209,7 +217,7 @@
     <div class="phd">
       <span class="ptag">Phase 5 · Weeks 11–12</span>
       <span class="ptitle">Recommendation — Learning from similar students</span>
-      <a href="TransferAdvisor.html#stage4" class="ptalink">Transfer Advisor · Stage 4 ›</a>
+      <a href="CollegeAdvisor.html#stage4" class="ptalink">College Advisor · Stage 4 ›</a>
     </div>
     <div class="weeks">
       <div class="wk project dimmed">
@@ -229,7 +237,7 @@
 
 <footer>
   <span>CIS 17A: Introduction to Machine Learning &nbsp;·&nbsp; De Anza College</span>
-  <a href="TransferAdvisor.html">Transfer Advisor project →</a>
+  <a href="CollegeAdvisor.html">College Advisor project →</a>
 </footer>
 </body>
 </html>
