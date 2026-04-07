@@ -276,7 +276,7 @@
       <span class="sp" onclick="goToStage('stage2')" style="cursor:pointer;">Stage 2 · Regression</span>
       <span class="sp" onclick="goToStage('stage3')" style="cursor:pointer;">Stage 3 · Clustering</span>
       <span class="sp" onclick="goToStage('stage4')" style="cursor:pointer;">Stage 4 · Recommendation</span>
-      <span class="sp b17" onclick="goToStage('stage5')" style="cursor:pointer;">→ CIS 17B</span>
+      <span class="sp b17" onclick="goToStage('stage5')" style="cursor:pointer;">→ 17B · 17C</span>
     </div>
   </div>
 </div>
@@ -397,7 +397,8 @@
       <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td><td class="q-cell">"How much aid will I get?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
       <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td><td class="q-cell">"What type of school fits my profile?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
       <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td><td class="q-cell">"Where did students like me go?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"Here are my goals in my own words…"</td><td class="algo-cell">LLMs · Deep Learning</td><td class="phase-cell">CIS 17B</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"We told the machine which features matter. What if we stopped?"</td><td class="algo-cell">Deep Neural Networks · Feature Learning</td><td class="phase-cell">CIS 17B</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17C</td><td class="q-cell">"Here are my goals in my own words…"</td><td class="algo-cell">Generative AI · LLMs</td><td class="phase-cell">CIS 17C</td></tr>
     </tbody>
   </table>
 
@@ -1027,9 +1028,9 @@
           <div class="pn">Ranked school list</div>
         </div>
         <div class="lcard blue">
-          <div class="llabel">Where Stage 4 leads — Preview of CIS 17B</div>
-          <div class="lbody"><strong>What if Alex could describe her goals in plain language?</strong> <em>"I want a school with strong industry connections in the Bay Area, and I'm interested in AI research."</em> Matching natural language to structured school data requires neural networks and large language models — the subject of <strong>CIS 17B</strong>.</div>
-          <span class="lnext">→ CIS 17B: Deep Learning · Neural Networks · LLMs</span>
+          <div class="llabel">Where Stage 4 leads — The limit of all of 17A</div>
+          <div class="lbody"><strong>Every model we built this semester made the same assumption — we decided which features to give it.</strong> GPA. Major. Work hours. Aid need. We told the machine what to look at. What if we just gave it everything — every data point from ASSIST.org — and let it figure out which features matter? That's not possible with classical ML. It requires a much deeper neural network. That's where <strong>CIS 17B</strong> begins.</div>
+          <span class="lnext">→ CIS 17B: Deep Learning · Let the machine decide which features matter</span>
         </div>
       </div>
     </div>
@@ -1039,26 +1040,80 @@
       <div class="strg" onclick="document.getElementById('stage5').classList.toggle('open')">
         <div class="snum">17B</div>
         <div class="scontent">
-          <div class="sq">"Here are my goals in my own words…" <em>— Where CIS 17A leads</em></div>
-          <div class="atags"><span class="at b2">Neural Networks</span><span class="at b2">Deep Learning</span><span class="at b2">Large Language Models</span><span class="at b2">Embeddings</span></div>
+          <div class="sq">"We told the machine which features matter. What if we stopped doing that?" <em>— CIS 17B</em></div>
+          <div class="atags"><span class="at b2">Deep Neural Networks</span><span class="at b2">Feature Learning</span><span class="at b2">ASSIST.org Data</span><span class="at b2">Unstructured Input</span></div>
         </div>
         <div class="smeta"><span class="b17badge">CIS 17B</span></div>
         <div class="schev-col"><span class="schev">▶</span></div>
       </div>
       <div class="sbody" style="border-top:1px solid rgba(58,123,232,0.15);">
-        <div class="caplabel">What becomes possible in 17B</div>
+        <div class="caplabel">The big shift from 17A to 17B</div>
+        <div style="background:var(--ink);border-radius:10px;padding:20px 24px;margin-bottom:20px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+            <div style="text-align:center;padding:12px;">
+              <div style="font-family:var(--mono);font-size:9px;color:#9ca3af;letter-spacing:0.1em;margin-bottom:8px;">RULES-BASED</div>
+              <div style="font-size:12px;color:var(--paper);line-height:1.6;">Told machine <strong style="color:var(--accent);">which</strong> features matter <strong style="color:var(--accent);">AND how</strong></div>
+            </div>
+            <div style="text-align:center;padding:12px;border-left:1px solid rgba(255,255,255,0.1);border-right:1px solid rgba(255,255,255,0.1);">
+              <div style="font-family:var(--mono);font-size:9px;color:#9ca3af;letter-spacing:0.1em;margin-bottom:8px;">CLASSICAL ML · 17A</div>
+              <div style="font-size:12px;color:var(--paper);line-height:1.6;">Told machine <strong style="color:var(--accent);">which</strong> features matter. Machine figured out <strong style="color:var(--accent3);">how</strong></div>
+            </div>
+            <div style="text-align:center;padding:12px;">
+              <div style="font-family:var(--mono);font-size:9px;color:#9ca3af;letter-spacing:0.1em;margin-bottom:8px;">DEEP LEARNING · 17B</div>
+              <div style="font-size:12px;color:var(--paper);line-height:1.6;">Machine figures out <strong style="color:var(--accent3);">which</strong> features matter <strong style="color:var(--accent3);">AND how</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="caplabel">What this means for College Advisor</div>
         <ul class="caplist">
-          <li>Alex describes her goals in natural language — the system understands and matches them to schools</li>
-          <li>Neural networks learn richer representations of both students and schools</li>
-          <li>LLMs generate personalized advice, not just predictions</li>
-          <li>The full College Advisor becomes a conversational AI — built on everything from 17A</li>
+          <li>Instead of hand-picking GPA, major, work hours — we feed the model everything from ASSIST.org and let it discover what predicts admission</li>
+          <li>The model finds patterns no human would think to look for — combinations of courses, grade trajectories, timing</li>
+          <li>Same College Advisor problem, fundamentally more powerful approach — deeper neural network, no feature engineering</li>
+          <li>Bonus capability: deeper networks can also process unstructured data — like an image of Alex's grade sheet or transcript scan</li>
+          <li class="no">Still can't understand Alex's goals described in her own words — that requires a language model trained on text at massive scale</li>
         </ul>
-        <div class="pipelabel">How it's built</div>
+        <div class="pipelabel">How the model evolves</div>
+        <div class="pipeline">
+          <div class="pn">Everything from ASSIST.org</div><div class="pa">→</div>
+          <div class="pn hl2">Deep Neural Network</div><div class="pa">→</div>
+          <div class="pn">Learns its own features</div><div class="pa">→</div>
+          <div class="pn">Admit prediction</div>
+        </div>
+        <div class="lcard blue" style="margin-top:20px;">
+          <div class="llabel" style="color:var(--accent2);">Where 17B leads — Preview of CIS 17C</div>
+          <div class="lbody"><strong>The 17B model still needs data in rows and columns.</strong> Alex still fills in a form. But what if she could just say what she wants? <em>"I want a Bay Area school with strong CS industry connections."</em> That's free text — unstructured input that no row-and-column model can process. You need a language model trained on billions of words. Wiring that model to College Advisor is the subject of <strong>CIS 17C</strong>.</div>
+          <span class="lnext" style="color:var(--accent2);">→ CIS 17C: Generative AI · LLMs · Unstructured Input · Two Models Working Together</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17C -->
+    <div class="scard s17b" id="stage6">
+      <div class="strg" onclick="document.getElementById('stage6').classList.toggle('open')">
+        <div class="snum">17C</div>
+        <div class="scontent">
+          <div class="sq">"Here are my goals in my own words…" <em>— CIS 17C</em></div>
+          <div class="atags"><span class="at b2">Generative AI</span><span class="at b2">Large Language Models</span><span class="at b2">Embeddings</span><span class="at b2">Unstructured Input</span></div>
+        </div>
+        <div class="smeta"><span class="b17badge">CIS 17C</span></div>
+        <div class="schev-col"><span class="schev">▶</span></div>
+      </div>
+      <div class="sbody" style="border-top:1px solid rgba(58,123,232,0.15);">
+        <div class="caplabel">What becomes possible in 17C</div>
+        <ul class="caplist">
+          <li>Alex types her goals in plain English — the system understands what she means</li>
+          <li>A pre-trained LLM (via AWS Bedrock) converts her text into an embedding — a vector that captures meaning</li>
+          <li>That embedding feeds into the 17B College Advisor model — two models working together</li>
+          <li>The 17A model you built is now a component in a larger AI system</li>
+          <li>17C is about using pre-trained foundation models — not training from scratch, but wiring together intelligently</li>
+        </ul>
+        <div class="pipelabel">How the two models connect</div>
         <div class="pipeline">
           <div class="pn">Alex's goals (text)</div><div class="pa">→</div>
-          <div class="pn hl2">LLM + Embeddings</div><div class="pa">→</div>
-          <div class="pn">Semantic school match</div><div class="pa">→</div>
-          <div class="pn">Personalized advice</div>
+          <div class="pn hl2">LLM · Bedrock</div><div class="pa">→</div>
+          <div class="pn">Embedding vector</div><div class="pa">→</div>
+          <div class="pn hl2">17B Model</div><div class="pa">→</div>
+          <div class="pn">Ranked schools</div>
         </div>
       </div>
     </div>
