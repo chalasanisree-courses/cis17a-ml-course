@@ -272,11 +272,11 @@
     <h1>College Advisor</h1>
     <p>An ML system that helps De Anza students find the right 4-year college to transfer to — built stage by stage as we learn each algorithm. Each stage answers a new question Alex has. Each limitation motivates the next one.</p>
     <div class="stage-pills">
-      <span class="sp live">Stage 1 · Classification</span>
-      <span class="sp">Stage 2 · Regression</span>
-      <span class="sp">Stage 3 · Clustering</span>
-      <span class="sp">Stage 4 · Recommendation</span>
-      <span class="sp b17">→ CIS 17B</span>
+      <span class="sp live" onclick="goToStage('stage1')" style="cursor:pointer;">Stage 1 · Classification</span>
+      <span class="sp" onclick="goToStage('stage2')" style="cursor:pointer;">Stage 2 · Regression</span>
+      <span class="sp" onclick="goToStage('stage3')" style="cursor:pointer;">Stage 3 · Clustering</span>
+      <span class="sp" onclick="goToStage('stage4')" style="cursor:pointer;">Stage 4 · Recommendation</span>
+      <span class="sp b17" onclick="goToStage('stage5')" style="cursor:pointer;">→ CIS 17B</span>
     </div>
   </div>
 </div>
@@ -1076,6 +1076,23 @@
 
 <script>
 // Tree node explanations
+function goToStage(stageId) {
+  // Open Part 4
+  const part4 = document.getElementById('part4');
+  if (part4 && !part4.classList.contains('open')) {
+    part4.classList.add('open');
+  }
+  // Open the target stage
+  const stage = document.getElementById(stageId);
+  if (stage && !stage.classList.contains('open')) {
+    stage.classList.add('open');
+  }
+  // Scroll to the stage
+  setTimeout(() => {
+    if (stage) stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 150);
+}
+
 function toggleW5(hd) {
   const body = hd.parentElement.querySelector('.w5body');
   const chev = hd.querySelector('.w5chev');
