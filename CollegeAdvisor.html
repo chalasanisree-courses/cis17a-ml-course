@@ -393,12 +393,12 @@
       <tr><th>Stage</th><th>Alex's Question</th><th>Algorithm</th><th>Course Phase</th></tr>
     </thead>
     <tbody>
-      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 1</td><td class="q-cell">"Will this school accept me?"</td><td class="algo-cell">Classification</td><td class="phase-cell">Phase 2 · Weeks 4–6</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td><td class="q-cell">"How much aid will I get?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td><td class="q-cell">"What type of school fits my profile?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td><td class="q-cell">"Where did students like me go?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"We told the machine which features matter. What if we stopped?"</td><td class="algo-cell">Deep Neural Networks · Feature Learning</td><td class="phase-cell">CIS 17B</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17C</td><td class="q-cell">"Here are my goals in my own words…"</td><td class="algo-cell">Generative AI · LLMs</td><td class="phase-cell">CIS 17C</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 1</td><td class="q-cell">"Will UC Santa Cruz accept me?"</td><td class="algo-cell">Classification</td><td class="phase-cell">Phase 2 · Weeks 4–6</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td><td class="q-cell">"How much aid will I get from UC Santa Cruz?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td><td class="q-cell">"I like UC Santa Cruz — what other schools are similar?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td><td class="q-cell">"Where did De Anza students like me actually transfer?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"Can the machine decide which features matter on its own?"</td><td class="algo-cell">Deep Neural Networks · Feature Learning</td><td class="phase-cell">CIS 17B</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17C</td><td class="q-cell">"Find me schools that match what I'm looking for — in my own words."</td><td class="algo-cell">Generative AI · LLMs</td><td class="phase-cell">CIS 17C</td></tr>
     </tbody>
   </table>
 
@@ -655,7 +655,7 @@
       <div class="strg" onclick="document.getElementById('stage1').classList.toggle('open')">
         <div class="snum">S1</div>
         <div class="scontent">
-          <div class="sq">"Will this school accept me?" <em>— Yes or No</em></div>
+          <div class="sq">"Will UC Santa Cruz accept me?" <em>— Yes or No</em></div>
           <div class="atags"><span class="at">Supervised Learning</span><span class="at">Binary Classification</span><span class="at">Decision Tree</span><span class="at">Logistic Regression</span></div>
         </div>
         <div class="smeta"><span class="livebadge">Live · Weeks 4–6</span></div>
@@ -951,7 +951,7 @@
       <div class="strg" onclick="document.getElementById('stage2').classList.toggle('open')">
         <div class="snum">S2</div>
         <div class="scontent">
-          <div class="sq">"How much financial aid will I likely get?"</div>
+          <div class="sq">"How much aid will I get from UC Santa Cruz?"</div>
           <div class="atags"><span class="at">Supervised Learning</span><span class="at">Regression</span><span class="at">Linear Regression</span><span class="at">Ridge · Lasso</span></div>
         </div>
         <div class="smeta"><span class="wkbadge">Weeks 7–8</span></div>
@@ -985,7 +985,7 @@
       <div class="strg" onclick="document.getElementById('stage3').classList.toggle('open')">
         <div class="snum">S3</div>
         <div class="scontent">
-          <div class="sq">"What type of school actually fits my profile?"</div>
+          <div class="sq">"I like UC Santa Cruz — what other schools are similar to it?"</div>
           <div class="atags"><span class="at">Unsupervised Learning</span><span class="at">K-Means Clustering</span><span class="at">PCA</span><span class="at">Silhouette Score</span></div>
         </div>
         <div class="smeta"><span class="wkbadge">Weeks 9–10</span></div>
@@ -994,22 +994,22 @@
       <div class="sbody">
         <div class="caplabel">What Alex can now ask</div>
         <ul class="caplist">
-          <li>Discover groups of schools with similar admit profiles — no labeled training data needed</li>
-          <li>Find out which cluster Alex's profile falls into</li>
-          <li>Understand unsupervised learning: no labels, the algorithm finds structure on its own</li>
-          <li class="no">Still not learning from what similar students actually chose to do</li>
+          <li>Start with a school she already likes — UC Santa Cruz — and find others with similar characteristics</li>
+          <li>Discover schools she never considered that sit in the same cluster — similar selectivity, CS strength, and student profiles they accept</li>
+          <li>Understand unsupervised learning: no labeled outcomes needed, the algorithm finds structure on its own</li>
+          <li class="no">Clustering finds similar schools — but doesn't use data on what students like Alex actually chose</li>
         </ul>
         <div class="pipelabel">How it's built</div>
         <div class="pipeline">
-          <div class="pn">School features (no labels)</div><div class="pa">→</div>
+          <div class="pn">School characteristics</div><div class="pa">→</div>
           <div class="pn">PCA</div><div class="pa">→</div>
           <div class="pn hl">K-Means</div><div class="pa">→</div>
           <div class="pn">School clusters</div><div class="pa">→</div>
-          <div class="pn">Silhouette score</div>
+          <div class="pn">UCSC's neighbors</div>
         </div>
         <div class="lcard">
           <div class="llabel">Limitation of Stage 3 — what motivates Stage 4</div>
-          <div class="lbody"><strong>Clustering finds groups — but doesn't use what real students did.</strong> The most powerful signal is: <em>De Anza students with a profile like Alex's transferred to these specific schools at high rates.</em> That's <strong>recommendation</strong>.</div>
+          <div class="lbody"><strong>Clustering finds schools similar to UC Santa Cruz — but doesn't know what students like Alex actually did.</strong> The most powerful signal is real transfer outcomes: De Anza students with Alex's profile went to these schools at high rates. That requires <strong>recommendation</strong> — learning from what similar students actually chose.</div>
           <span class="lnext">→ Stage 4: Recommendation · Weeks 11–12</span>
         </div>
       </div>
@@ -1020,7 +1020,7 @@
       <div class="strg" onclick="document.getElementById('stage4').classList.toggle('open')">
         <div class="snum">S4</div>
         <div class="scontent">
-          <div class="sq">"Where did students like me actually transfer to?"</div>
+          <div class="sq">"Where did De Anza students with a profile like mine actually transfer to?"</div>
           <div class="atags"><span class="at">Recommendation Systems</span><span class="at">Collaborative Filtering</span><span class="at">Cosine Similarity</span><span class="at">Cold Start Problem</span></div>
         </div>
         <div class="smeta"><span class="wkbadge">Weeks 11–12</span></div>
@@ -1054,7 +1054,7 @@
       <div class="strg" onclick="document.getElementById('stage5').classList.toggle('open')">
         <div class="snum">17B</div>
         <div class="scontent">
-          <div class="sq">"We told the machine which features matter. What if we stopped doing that?" <em>— CIS 17B</em></div>
+          <div class="sq">"We told the machine which features to look at. What if we stopped doing that?" <em>— CIS 17B</em></div>
           <div class="atags"><span class="at b2">Deep Neural Networks</span><span class="at b2">Feature Learning</span><span class="at b2">ASSIST.org Data</span><span class="at b2">Unstructured Input</span></div>
         </div>
         <div class="smeta"><span class="b17badge">CIS 17B</span></div>
@@ -1106,7 +1106,7 @@
       <div class="strg" onclick="document.getElementById('stage6').classList.toggle('open')">
         <div class="snum">17C</div>
         <div class="scontent">
-          <div class="sq">"Here are my goals in my own words…" <em>— CIS 17C</em></div>
+          <div class="sq">"I want a Bay Area school with strong CS and industry connections — find me options." <em>— CIS 17C</em></div>
           <div class="atags"><span class="at b2">Generative AI</span><span class="at b2">Large Language Models</span><span class="at b2">Embeddings</span><span class="at b2">Unstructured Input</span></div>
         </div>
         <div class="smeta"><span class="b17badge">CIS 17C</span></div>
