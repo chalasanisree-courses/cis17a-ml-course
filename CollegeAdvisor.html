@@ -44,6 +44,26 @@
   /* DIVIDER */
   .divider{border:none;border-top:1px solid var(--border);margin:52px 0;}
 
+  /* Part accordion */
+  .part-hd {
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 24px;background:var(--card);border:1px solid var(--border);
+    border-radius:10px;cursor:pointer;user-select:none;
+    transition:background 0.15s;margin-bottom:0;
+  }
+  .part-hd:hover{background:#faf8f4;}
+  .part.open .part-hd{border-radius:10px 10px 0 0;border-bottom:none;background:var(--ink);}
+  .part-hd-left{display:flex;flex-direction:column;gap:4px;}
+  .part-hd .slabel{margin-bottom:0;}
+  .part.open .part-hd .slabel{color:var(--accent);}
+  .part-hd .stitle{font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;margin-bottom:0;}
+  .part.open .part-hd .stitle{color:var(--paper);}
+  .part-chev{font-size:13px;color:var(--muted);transition:transform 0.25s;flex-shrink:0;}
+  .part.open .part-chev{transform:rotate(90deg);color:var(--accent);}
+  .part-body{display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:28px 28px 24px;background:var(--card);margin-bottom:0;}
+  .part.open .part-body{display:block;}
+  .part{margin-bottom:12px;}
+
   /* ALEX CARD */
   .alex{background:var(--card);border:1px solid var(--border);border-radius:12px;display:grid;grid-template-columns:190px 1fr;overflow:hidden;margin-bottom:36px;}
   .al{background:var(--ink);padding:28px 22px;display:flex;flex-direction:column;align-items:center;gap:12px;}
@@ -263,10 +283,19 @@
 
 <div class="wrap">
 
-  <!-- PART 1: THE PROBLEM -->
+  <div class="part" id="part1">
+    <div class="part-hd" onclick="document.getElementById('part1').classList.toggle('open')">
+      <div class="part-hd-left">
+        <div class="slabel">Part 1</div>
+        <div class="stitle">The Problem</div>
+      </div>
+      <span class="part-chev">▶</span>
+    </div>
+    <div class="part-body">
+<!-- ══════════════════════════════════════ -->
   <div class="slabel">Part 1 — The Problem</div>
-  <div class="stitle">Meet Alex</div>
-  <div class="ssub">Alex's profile is our test case at every stage. If it helps Alex, it helps students like Alex.</div>
+  <div class="stitle">Before we build anything</div>
+  <div class="ssub">Every good application starts with a clear understanding of the problem and who it's for. Let's look at the problem first.</div>
 
   <div class="alex">
     <div class="al">
@@ -286,9 +315,8 @@
     </div>
   </div>
 
-  <div class="slabel" style="margin-top:40px;">Before we build anything</div>
-  <div class="stitle">How would you decide which schools to apply to?</div>
-  <div class="ssub">If you were Alex — 3.4 GPA, CS major, 30 hours of work a week — how would you figure out which schools actually want a student like you? Let's look at the options.</div>
+  <div class="slabel" style="margin-top:40px;">What would you do if you were Alex?</div>
+  <div class="ssub">Before we build a solution, let's understand what Alex would actually try — and why each approach falls short.</div>
 
   <div class="wcards">
     <div class="wcard">
@@ -298,7 +326,7 @@
         <span class="wbadge">Wrong information</span>
         <span class="wchev">▶</span>
       </div>
-      <div class="wbody">College websites tell you what they want in an ideal student. Rankings tell you prestige. Neither tells you whether <em>you specifically</em> — your GPA, your major, your work hours — have a realistic shot. The intersection between what Alex wants and what the college will actually accept is invisible from the outside.</div>
+      <div class="wbody">College websites tell you what they want in an ideal student. Rankings tell you prestige. Neither tells you whether <em>you specifically</em> — your GPA, your major, your work hours — have a realistic shot. The intersection between what Alex wants and what the college will actually accept is completely invisible from the outside.</div>
     </div>
     <div class="wcard">
       <div class="wtrg" onclick="this.parentElement.classList.toggle('open')">
@@ -316,73 +344,313 @@
         <span class="wbadge">Doesn't scale</span>
         <span class="wchev">▶</span>
       </div>
-      <div class="wbody">This is the closest thing to a right answer. A counselor with ten years of experience has watched hundreds of students apply and seen what happened. They know intuitively which schools will bite and which won't — not because the college website says so, but because they've seen the pattern repeat. But there is one counselor for every 500 students. Their knowledge is private, lives in their head, and isn't available at midnight when Alex is filling out applications.</div>
+      <div class="wbody">This is the closest thing to a right answer. A counselor with ten years of experience has watched hundreds of students apply and seen what happened. They know intuitively which schools will bite for a profile like Alex's. But there is one counselor for every 500 students. Their knowledge is private, lives in their head, and isn't available at midnight when Alex is filling out applications.</div>
     </div>
   </div>
 
-  <!-- INSIGHT CARD — comes last, as the conclusion -->
   <div style="background:var(--ink);border-radius:12px;padding:28px 32px;margin-top:20px;position:relative;overflow:hidden;">
     <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,135,58,0.15) 0%,transparent 70%);pointer-events:none;"></div>
     <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">So what do we do?</div>
-    <div style="font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--paper);line-height:1.5;margin-bottom:14px;">The counselor is the right answer — but they can't reach everyone. They've synthesized thousands of outcomes into an intuition. The question is: how do we give College Advisor that same knowledge?</div>
-    <div style="font-size:14px;color:#9ca3af;line-height:1.7;">We can't give a machine years of experience. But we can give it the data that experience was built on — thousands of real transfer outcomes from California community colleges. The machine finds the same pattern the counselor found. That's machine learning.</div>
+    <div style="font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--paper);line-height:1.5;margin-bottom:14px;">The counselor is the right answer — but they can't reach everyone. They've synthesized thousands of outcomes into an intuition. The question is: how do we give every student access to that same knowledge?</div>
+    <div style="font-size:14px;color:#9ca3af;line-height:1.7;">We can't give a machine years of experience. But we can give it the data that experience was built on — thousands of real transfer outcomes. The machine finds the same pattern the counselor found. That's machine learning.</div>
   </div>
 
   <hr class="divider">
 
-  <!-- PART 2: THE PROJECT ARC — OVERVIEW TABLE -->
-  <div class="slabel">Part 2 — The Project Arc</div>
+  <!-- ══════════════════════════════════════ -->
+    </div>
+  </div>
+
+  <div class="part" id="part2">
+    <div class="part-hd" onclick="document.getElementById('part2').classList.toggle('open')">
+      <div class="part-hd-left">
+        <div class="slabel">Part 2</div>
+        <div class="stitle">The Solution</div>
+      </div>
+      <span class="part-chev">▶</span>
+    </div>
+    <div class="part-body">
+<!-- ══════════════════════════════════════ -->
+  <div class="slabel">Part 2 — The Solution</div>
+
+  <!-- REVEAL -->
+  <div style="text-align:center;padding:52px 24px;background:var(--ink);border-radius:16px;margin-bottom:36px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(232,135,58,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,135,58,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+    <div style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,135,58,0.12) 0%,transparent 65%);pointer-events:none;"></div>
+    <div style="position:relative;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">Introducing</div>
+      <div style="font-family:var(--sans);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;color:var(--paper);letter-spacing:-0.02em;line-height:1;margin-bottom:16px;">College Advisor</div>
+      <div style="font-size:15px;color:#9ca3af;max-width:480px;margin:0 auto;line-height:1.75;font-weight:300;">An ML system that encodes what the counselor knows — and makes it available to every De Anza student, built stage by stage as we learn each algorithm.</div>
+    </div>
+  </div>
+
+  <!-- Solution Evolution -->
   <div class="stitle">How College Advisor evolves across the semester</div>
-  <div class="ssub">Each course phase adds a new algorithm family. Each College Advisor stage unlocks a new question Alex can ask. Click any stage below to explore it.</div>
+  <div class="ssub">Each course phase adds a new algorithm. Each stage unlocks a new question Alex can ask. Each limitation motivates the next stage.</div>
 
   <table class="map-table">
     <thead>
-      <tr>
-        <th>TA Stage</th>
-        <th>Alex's Question</th>
-        <th>Algorithm</th>
-        <th>Course Phase</th>
-      </tr>
+      <tr><th>Stage</th><th>Alex's Question</th><th>Algorithm</th><th>Course Phase</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="stage-cell"><span class="dot dot-live"></span>Stage 1</td>
-        <td class="q-cell">"Will this school accept me?"</td>
-        <td class="algo-cell">Classification</td>
-        <td class="phase-cell">Phase 2 · Weeks 4–6</td>
-      </tr>
-      <tr>
-        <td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td>
-        <td class="q-cell">"How much aid will I get?"</td>
-        <td class="algo-cell">Regression</td>
-        <td class="phase-cell">Phase 3 · Weeks 7–8</td>
-      </tr>
-      <tr>
-        <td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td>
-        <td class="q-cell">"What type of school fits my profile?"</td>
-        <td class="algo-cell">Clustering</td>
-        <td class="phase-cell">Phase 4 · Weeks 9–10</td>
-      </tr>
-      <tr>
-        <td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td>
-        <td class="q-cell">"Where did students like me go?"</td>
-        <td class="algo-cell">Recommendation</td>
-        <td class="phase-cell">Phase 5 · Weeks 11–12</td>
-      </tr>
-      <tr>
-        <td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td>
-        <td class="q-cell">"Here are my goals in my own words…"</td>
-        <td class="algo-cell">LLMs · Deep Learning</td>
-        <td class="phase-cell">CIS 17B</td>
-      </tr>
+      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 1</td><td class="q-cell">"Will this school accept me?"</td><td class="algo-cell">Classification</td><td class="phase-cell">Phase 2 · Weeks 4–6</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td><td class="q-cell">"How much aid will I get?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td><td class="q-cell">"What type of school fits my profile?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td><td class="q-cell">"Where did students like me go?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"Here are my goals in my own words…"</td><td class="algo-cell">LLMs · Deep Learning</td><td class="phase-cell">CIS 17B</td></tr>
     </tbody>
   </table>
 
-  <!-- STAGES ACCORDION -->
+  <hr class="divider">
+
+  <!-- ══════════════════════════════════════ -->
+    </div>
+  </div>
+
+  <div class="part" id="part3">
+    <div class="part-hd" onclick="document.getElementById('part3').classList.toggle('open')">
+      <div class="part-hd-left">
+        <div class="slabel">Part 3</div>
+        <div class="stitle">ML-Based Solutions</div>
+      </div>
+      <span class="part-chev">▶</span>
+    </div>
+    <div class="part-body">
+<!-- ══════════════════════════════════════ -->
+  <div class="slabel">Part 3 — ML-Based Solutions</div>
+  <div class="stitle">What makes ML different from traditional software?</div>
+  <div class="ssub">Both take inputs and produce outputs. The difference is what sits in the middle — and who finds the patterns.</div>
+
+  <!-- TRADITIONAL vs ML VISUAL -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;">
+
+    <!-- Traditional -->
+    <div style="padding:24px 28px;border-bottom:1px solid var(--border);">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Traditional — Rules-Based</div>
+      <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;gap:8px;">
+
+        <div style="background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:130px;text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;margin-bottom:6px;">INPUT</div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink);">Student Profile</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">GPA · Major · Work hrs</div>
+        </div>
+
+        <div style="color:var(--muted);font-size:20px;padding:0 4px;">→</div>
+
+        <div style="background:var(--paper);border:2px solid var(--border);border-radius:8px;padding:14px 18px;flex:1;min-width:200px;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px;">PROCESS — Human writes the rules</div>
+          <div style="font-family:var(--mono);font-size:11px;color:#c85a1a;line-height:1.7;">
+            IF GPA &gt; 3.5 AND major = CS<br>
+            &nbsp;&nbsp;→ recommend Cal Poly<br>
+            IF GPA &gt; 3.2 AND work_hrs &lt; 20<br>
+            &nbsp;&nbsp;→ recommend UCSC<br>
+            <span style="color:var(--muted);">...500 more rules...</span>
+          </div>
+          <div style="margin-top:10px;padding:8px 10px;background:#fff3ee;border-radius:6px;border:1px solid rgba(232,135,58,0.2);">
+            <div style="font-size:12px;color:#c85a1a;">⚠️ When admissions data changes, a <strong>human</strong> must find the new patterns and rewrite the rules.</div>
+          </div>
+        </div>
+
+        <div style="color:var(--muted);font-size:20px;padding:0 4px;">→</div>
+
+        <div style="background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:130px;text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;margin-bottom:6px;">OUTPUT</div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink);">School List</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">Admit prediction</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ML -->
+    <div style="padding:24px 28px;background:#fafaf8;">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">ML-Based — The Machine Finds the Patterns</div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+
+        <div style="background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:130px;text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;margin-bottom:6px;">INPUT</div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink);">Student Profile</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">GPA · Major · Work hrs</div>
+        </div>
+
+        <div style="color:var(--muted);font-size:20px;padding:0 4px;">→</div>
+
+        <div style="background:var(--ink);border:2px solid var(--accent);border-radius:8px;padding:14px 18px;flex:1;min-width:200px;text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:0.08em;margin-bottom:8px;">PROCESS — The Trained Brain</div>
+          <div style="font-size:24px;margin-bottom:6px;">🧠</div>
+          <div style="font-size:12px;color:#e5e7eb;line-height:1.6;">Patterns learned automatically<br>from thousands of real outcomes</div>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(56,176,122,0.15);border-radius:6px;border:1px solid rgba(56,176,122,0.3);">
+            <div style="font-size:11px;color:var(--accent3);">✓ When data changes — retrain. The machine finds the new patterns itself.</div>
+          </div>
+        </div>
+
+        <div style="color:var(--muted);font-size:20px;padding:0 4px;">→</div>
+
+        <div style="background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:130px;text-align:center;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;margin-bottom:6px;">OUTPUT</div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink);">School List</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">Admit prediction</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <span class="ci">💡</span>
+    <span>Both systems take the same input and produce the same output. The difference is what sits in the middle. In traditional software, a <strong>human</strong> studies the data, finds the patterns, and writes the rules. In ML, the <strong>machine</strong> does that — faster, at larger scale, and it can update itself when the data changes.</span>
+  </div>
+
+  <!-- THE BRAIN NEEDS TO BE TRAINED -->
+  <div class="stitle" style="margin-top:40px;">But the brain needs to be trained first</div>
+  <div class="ssub">Before the ML system can make predictions, it needs to learn from historical data. This is called training. Here's the full pipeline:</div>
+
+  <!-- Two-pipeline SVG -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 24px;overflow-x:auto;margin-bottom:12px;">
+    <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:700px;font-family:'JetBrains Mono',monospace;">
+
+      <!-- ── LABELS ── -->
+      <text x="8" y="36" fill="#9ca3af" font-size="10" font-weight="700" letter-spacing="1">TRAINING</text>
+      <text x="8" y="49" fill="#9ca3af" font-size="9">build the brain</text>
+      <line x1="8" y1="56" x2="8" y2="130" stroke="#e2ddd4" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <text x="8" y="190" fill="#9ca3af" font-size="10" font-weight="700" letter-spacing="1">PRODUCTION</text>
+      <text x="8" y="203" fill="#9ca3af" font-size="9">use the brain</text>
+      <line x1="8" y1="210" x2="8" y2="280" stroke="#e2ddd4" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- ═══════════════════════════════ -->
+      <!-- TOP PIPELINE: TRAINING          -->
+      <!-- ═══════════════════════════════ -->
+
+      <!-- Box T1: Historical Data -->
+      <rect x="76" y="60" width="120" height="62" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
+      <text x="136" y="82" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="0.5">HISTORICAL DATA</text>
+      <text x="136" y="100" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Past Transfer</text>
+      <text x="136" y="114" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Outcomes</text>
+
+      <line x1="196" y1="91" x2="214" y2="91" stroke="#c8c0b0" stroke-width="1.5"/>
+      <polygon points="214,86 224,91 214,96" fill="#c8c0b0"/>
+
+      <!-- Box T2: Clean -->
+      <rect x="226" y="60" width="120" height="62" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
+      <text x="286" y="82" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="0.5">STEP 1</text>
+      <text x="286" y="100" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Clean &amp; Select</text>
+      <text x="286" y="114" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Features</text>
+
+      <line x1="346" y1="91" x2="364" y2="91" stroke="#c8c0b0" stroke-width="1.5"/>
+      <polygon points="364,86 374,91 364,96" fill="#c8c0b0"/>
+
+      <!-- Box T3: Train — orange highlighted -->
+      <rect x="376" y="52" width="130" height="78" rx="8" fill="#e8873a" stroke="#e8873a" stroke-width="2"/>
+      <text x="441" y="75" fill="rgba(255,255,255,0.75)" font-size="9" text-anchor="middle" letter-spacing="0.5">STEP 2 · TRAINING</text>
+      <text x="441" y="95" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Machine learns</text>
+      <text x="441" y="111" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">the patterns</text>
+
+      <line x1="506" y1="91" x2="524" y2="91" stroke="#c8c0b0" stroke-width="1.5"/>
+      <polygon points="524,86 534,91 524,96" fill="#c8c0b0"/>
+
+      <!-- Box T4: Evaluate -->
+      <rect x="536" y="60" width="120" height="62" rx="8" fill="#eef2ff" stroke="#3a7be8" stroke-width="1.5"/>
+      <text x="596" y="82" fill="#2a5ab8" font-size="9" text-anchor="middle" letter-spacing="0.5">STEP 3 · EVALUATE</text>
+      <text x="596" y="100" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Test on held-out</text>
+      <text x="596" y="114" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">data</text>
+
+      <line x1="656" y1="91" x2="674" y2="91" stroke="#3a7be8" stroke-width="1.5"/>
+      <polygon points="674,86 684,91 674,96" fill="#3a7be8"/>
+
+      <!-- Gate label -->
+      <text x="694" y="86" fill="#3a7be8" font-size="9" text-anchor="middle" font-weight="700">good</text>
+      <text x="694" y="97" fill="#3a7be8" font-size="9" text-anchor="middle" font-weight="700">enough?</text>
+      <text x="694" y="108" fill="#38b07a" font-size="9" text-anchor="middle">✓</text>
+
+      <!-- ── THE BRAIN — output of training, input of production ── -->
+      <!-- Vertical arrow down from training -->
+      <line x1="441" y1="130" x2="441" y2="162" stroke="#e8873a" stroke-width="2" stroke-dasharray="4,3"/>
+      <polygon points="436,162 441,172 446,162" fill="#e8873a"/>
+
+      <!-- Brain circle -->
+      <circle cx="441" cy="152" r="0" fill="none"/>
+      <!-- brain emoji centred between pipelines -->
+      <text x="441" y="168" font-size="28" text-anchor="middle">🧠</text>
+      <text x="441" y="182" fill="#e8873a" font-size="9" text-anchor="middle" font-weight="700" letter-spacing="0.5">TRAINED MODEL</text>
+
+      <!-- Vertical arrow down into production pipeline -->
+      <line x1="441" y1="186" x2="441" y2="216" stroke="#38b07a" stroke-width="2"/>
+      <polygon points="436,216 441,226 446,216" fill="#38b07a"/>
+
+      <!-- ═══════════════════════════════ -->
+      <!-- BOTTOM PIPELINE: PRODUCTION     -->
+      <!-- ═══════════════════════════════ -->
+
+      <!-- Box P1: New student -->
+      <rect x="76" y="228" width="120" height="62" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
+      <text x="136" y="250" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="0.5">NEW STUDENT</text>
+      <text x="136" y="268" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Alex's Profile</text>
+      <text x="136" y="282" fill="#6b7280" font-size="9" text-anchor="middle">GPA · Major · Hrs</text>
+
+      <line x1="196" y1="259" x2="214" y2="259" stroke="#c8c0b0" stroke-width="1.5"/>
+      <polygon points="214,254 224,259 214,264" fill="#c8c0b0"/>
+
+      <!-- Box P2: Clean -->
+      <rect x="226" y="228" width="120" height="62" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
+      <text x="286" y="250" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="0.5">STEP 1</text>
+      <text x="286" y="268" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Clean &amp; Select</text>
+      <text x="286" y="282" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Features</text>
+
+      <line x1="346" y1="259" x2="364" y2="259" stroke="#c8c0b0" stroke-width="1.5"/>
+      <polygon points="364,254 374,259 364,264" fill="#c8c0b0"/>
+
+      <!-- Box P3: The Brain (production) — green highlighted -->
+      <rect x="376" y="220" width="130" height="78" rx="8" fill="#edfaf3" stroke="#38b07a" stroke-width="2"/>
+      <text x="441" y="243" fill="#2a7a4b" font-size="9" text-anchor="middle" letter-spacing="0.5">STEP 2 · INFERENCE</text>
+      <text x="441" y="261" fill="#0f1117" font-size="12" font-weight="700" text-anchor="middle">Run through</text>
+      <text x="441" y="277" fill="#0f1117" font-size="12" font-weight="700" text-anchor="middle">the brain 🧠</text>
+
+      <line x1="506" y1="259" x2="524" y2="259" stroke="#38b07a" stroke-width="1.5"/>
+      <polygon points="524,254 534,259 524,264" fill="#38b07a"/>
+
+      <!-- Box P4: Output -->
+      <rect x="536" y="228" width="120" height="62" rx="8" fill="#edfaf3" stroke="#38b07a" stroke-width="2"/>
+      <text x="596" y="250" fill="#2a7a4b" font-size="9" text-anchor="middle" letter-spacing="0.5">OUTPUT</text>
+      <text x="596" y="268" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Admit prediction</text>
+      <text x="596" y="282" fill="#2a7a4b" font-size="11" font-weight="600" text-anchor="middle">Yes / No · 58%</text>
+
+    </svg>
+  </div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:24px;line-height:1.6;">
+    The brain is built once during training — then used instantly for every new prediction. The machine is not deployed until it passes evaluation in Step 3.
+  </div>
+
+  <div class="callout">
+    <span class="ci">💡</span>
+    <span>This pipeline is the same regardless of which ML algorithm we use — decision tree, logistic regression, clustering, or recommendation. What changes at Step 2 is <strong>which algorithm we train and how it finds patterns</strong>. That's what each stage of College Advisor teaches.</span>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ══════════════════════════════════════ -->
+    </div>
+  </div>
+
+  <div class="part" id="part4">
+    <div class="part-hd" onclick="document.getElementById('part4').classList.toggle('open')">
+      <div class="part-hd-left">
+        <div class="slabel">Part 4</div>
+        <div class="stitle">The Stages</div>
+      </div>
+      <span class="part-chev">▶</span>
+    </div>
+    <div class="part-body">
+<!-- ══════════════════════════════════════ -->
+  <div class="slabel">Part 4 — The Stages</div>
+  <div class="stitle">The brain can be trained on different algorithms</div>
+  <div class="ssub">Each algorithm is designed to answer a different type of question. College Advisor uses four — each one motivated by the limitation of the previous one. Let's start with the simplest question Alex has.</div>
+
   <div class="stages">
 
-    <!-- STAGE 1 — open -->
-    <div class="scard live open" id="stage1">
+    <!-- STAGE 1 -->
+    <div class="scard live" id="stage1">
       <div class="strg" onclick="document.getElementById('stage1').classList.toggle('open')">
         <div class="snum">S1</div>
         <div class="scontent">
@@ -393,194 +661,184 @@
         <div class="schev-col"><span class="schev">▶</span></div>
       </div>
       <div class="sbody">
-
-        <!-- WHAT ALEX CAN DO -->
         <div class="caplabel">What Alex can now do</div>
         <ul class="caplist">
           <li>Enter a student profile and get a Yes/No admission prediction for a specific school</li>
           <li>See exactly which features drove the prediction — the decision tree is fully interpretable</li>
-          <li class="no">Can only evaluate one school at a time — must run it separately for each school</li>
-          <li class="no">Can't say how much financial aid Alex would receive — only whether she'd get in</li>
+          <li class="no">Can only evaluate one school at a time</li>
+          <li class="no">Can't say how much financial aid Alex would receive</li>
           <li class="no">Can't suggest schools Alex hasn't already thought of</li>
         </ul>
 
-        <!-- PIPELINE — forked SVG diagram -->
-        <div class="caplabel" style="margin-top:8px;">How it's built — the ML pipeline</div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 20px 32px;overflow-x:auto;">
-          <svg viewBox="0 0 780 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:620px;font-family:'JetBrains Mono',monospace;">
+        <!-- ── STEPPER ── -->
+        <div style="margin-top:8px;">
 
-            <!-- Box 1: Real Data -->
-            <rect x="4" y="88" width="136" height="68" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
-            <text x="72" y="112" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="1">SOURCE</text>
-            <text x="72" y="130" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Real Transfer</text>
-            <text x="72" y="147" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Data</text>
-
-            <!-- Arrow 1→2 -->
-            <line x1="140" y1="122" x2="162" y2="122" stroke="#9ca3af" stroke-width="1.5"/>
-            <polygon points="162,117 172,122 162,127" fill="#9ca3af"/>
-
-            <!-- Box 2: Clean & Select -->
-            <rect x="174" y="88" width="136" height="68" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
-            <text x="242" y="112" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="1">STEP 1</text>
-            <text x="242" y="130" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Clean &amp; Select</text>
-            <text x="242" y="147" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Features</text>
-
-            <!-- Arrow 2→3 -->
-            <line x1="310" y1="122" x2="332" y2="122" stroke="#9ca3af" stroke-width="1.5"/>
-            <polygon points="332,117 342,122 332,127" fill="#9ca3af"/>
-
-            <!-- Box 3: Train Decision Tree — HIGHLIGHTED -->
-            <rect x="344" y="80" width="148" height="84" rx="8" fill="#e8873a" stroke="#e8873a" stroke-width="2"/>
-            <text x="418" y="106" fill="rgba(255,255,255,0.7)" font-size="9" text-anchor="middle" letter-spacing="1">STEP 2 · THE MODEL</text>
-            <text x="418" y="126" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Train Decision</text>
-            <text x="418" y="144" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Tree</text>
-
-            <!-- Fork stem out of Box 3 -->
-            <line x1="492" y1="122" x2="530" y2="122" stroke="#9ca3af" stroke-width="1.5"/>
-            <!-- Vertical spine -->
-            <line x1="530" y1="60" x2="530" y2="185" stroke="#c8c0b0" stroke-width="1.5"/>
-            <!-- Fork label -->
-            <text x="534" y="118" fill="#9ca3af" font-size="9" letter-spacing="0.5">after</text>
-            <text x="534" y="130" fill="#9ca3af" font-size="9" letter-spacing="0.5">training:</text>
-
-            <!-- TOP BRANCH: Production -->
-            <line x1="530" y1="60" x2="562" y2="60" stroke="#38b07a" stroke-width="2"/>
-            <polygon points="562,55 572,60 562,65" fill="#38b07a"/>
-            <text x="534" y="44" fill="#38b07a" font-size="9" font-weight="700" letter-spacing="1">PRODUCTION</text>
-
-            <!-- Box 4a: Predict for Alex -->
-            <rect x="574" y="28" width="150" height="64" rx="8" fill="#edfaf3" stroke="#38b07a" stroke-width="1.5"/>
-            <text x="649" y="50" fill="#2a7a4b" font-size="9" text-anchor="middle" letter-spacing="1">STEP 3</text>
-            <text x="649" y="68" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Predict for Alex</text>
-            <text x="649" y="84" fill="#6b7280" font-size="9" text-anchor="middle">Yes / No per school</text>
-
-            <!-- BOTTOM BRANCH: Dev / Eval -->
-            <line x1="530" y1="185" x2="562" y2="185" stroke="#3a7be8" stroke-width="2" stroke-dasharray="5,3"/>
-            <polygon points="562,180 572,185 562,190" fill="#3a7be8"/>
-            <text x="534" y="172" fill="#3a7be8" font-size="9" font-weight="700" letter-spacing="1">DEV / EVAL</text>
-
-            <!-- Box 4b: Evaluate -->
-            <rect x="574" y="153" width="150" height="64" rx="8" fill="#eef2ff" stroke="#3a7be8" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <text x="649" y="175" fill="#2a5ab8" font-size="9" text-anchor="middle" letter-spacing="1">STEP 4</text>
-            <text x="649" y="193" fill="#0f1117" font-size="12" font-weight="600" text-anchor="middle">Evaluate Model</text>
-            <text x="649" y="209" fill="#6b7280" font-size="9" text-anchor="middle">Accuracy · Precision · Recall</text>
-
-          </svg>
-        </div>
-        <div style="display:flex;gap:20px;margin-top:10px;margin-bottom:24px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--accent3);">
-            <span style="width:24px;height:2px;background:var(--accent3);display:inline-block;border-radius:2px;"></span>
-            Production — runs live for every new student
+          <!-- Step indicator bar -->
+          <div style="display:flex;gap:0;border:1px solid var(--border);border-radius:9px;overflow:hidden;margin-bottom:20px;">
+            <button onclick="showStep(1)" id="stab1" style="flex:1;padding:12px 8px;border:none;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;border-right:1px solid var(--border);background:var(--ink);color:var(--accent);font-weight:700;transition:all 0.15s;">
+              <div style="font-size:16px;margin-bottom:3px;">📚</div>
+              Training Data
+            </button>
+            <button onclick="showStep(2)" id="stab2" style="flex:1;padding:12px 8px;border:none;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;border-right:1px solid var(--border);background:var(--card);color:var(--muted);transition:all 0.15s;">
+              <div style="font-size:16px;margin-bottom:3px;">🧠</div>
+              The Model
+            </button>
+            <button onclick="showStep(3)" id="stab3" style="flex:1;padding:12px 8px;border:none;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;border-right:1px solid var(--border);background:var(--card);color:var(--muted);transition:all 0.15s;">
+              <div style="font-size:16px;margin-bottom:3px;">📐</div>
+              Evaluate
+            </button>
+            <button onclick="showStep(4)" id="stab4" style="flex:1;padding:12px 8px;border:none;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;background:var(--card);color:var(--muted);transition:all 0.15s;">
+              <div style="font-size:16px;margin-bottom:3px;">🚀</div>
+              Production
+            </button>
           </div>
-          <div style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--accent2);">
-            <span style="width:24px;height:2px;background:var(--accent2);display:inline-block;border-radius:2px;border-top:2px dashed var(--accent2);"></span>
-            Dev / Eval — runs on held-out test data to measure quality
-          </div>
-        </div>
 
-        <!-- 4-BEAT DEMO — scrolling sections, no tabs -->
-        <div class="caplabel">Walk through it step by step</div>
+          <!-- Step content panels -->
 
-        <!-- BEAT 1: THE DATA -->
-        <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px;">
-          <div style="background:var(--ink2);padding:12px 18px;display:flex;align-items:center;gap:10px;">
-            <span style="background:var(--accent);color:var(--ink);font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;">Step 1</span>
-            <span style="font-family:var(--sans);font-weight:700;font-size:14px;color:var(--paper);">The Training Data</span>
-            <span style="font-family:var(--mono);font-size:11px;color:#666;margin-left:auto;">10 past De Anza → UC Santa Cruz students</span>
-          </div>
-          <div style="padding:18px 20px;background:var(--card);">
+          <!-- PANEL 1: TRAINING DATA -->
+          <div id="spanel1" style="display:block;">
             <div class="tblwrap">
               <table>
                 <thead><tr><th>Student</th><th>GPA</th><th>Major</th><th>Work Hrs/Wk</th><th>Aid Need</th><th>Admitted?</th></tr></thead>
                 <tbody>
                   <tr><td>S01</td><td>3.8</td><td>CS</td><td>10</td><td>Low</td><td><span class="ly">YES</span></td></tr>
                   <tr><td>S02</td><td>3.6</td><td>CS</td><td>15</td><td>Medium</td><td><span class="ly">YES</span></td></tr>
-                  <tr><td>S03</td><td>3.1</td><td>Business</td><td>35</td><td>High</td><td><span class="ln">NO</span></td></tr>
-                  <tr><td>S04</td><td>3.5</td><td>CS</td><td>20</td><td>High</td><td><span class="ly">YES</span></td></tr>
-                  <tr><td>S05</td><td>2.9</td><td>Business</td><td>40</td><td>High</td><td><span class="ln">NO</span></td></tr>
-                  <tr><td>S06</td><td>3.7</td><td>Engineering</td><td>0</td><td>Low</td><td><span class="ly">YES</span></td></tr>
-                  <tr><td>S07</td><td>3.2</td><td>CS</td><td>30</td><td>High</td><td><span class="ln">NO</span></td></tr>
-                  <tr><td>S08</td><td>3.9</td><td>Business</td><td>5</td><td>Low</td><td><span class="ly">YES</span></td></tr>
-                  <tr><td>S09</td><td>3.0</td><td>Engineering</td><td>25</td><td>Medium</td><td><span class="ln">NO</span></td></tr>
-                  <tr><td>S10</td><td>3.4</td><td>CS</td><td>20</td><td>Medium</td><td><span class="ly">YES</span></td></tr>
+                  <tr><td>S03</td><td>3.5</td><td>CS</td><td>20</td><td>High</td><td><span class="ly">YES</span></td></tr>
+                  <tr><td>S04</td><td>3.7</td><td>Engineering</td><td>8</td><td>Low</td><td><span class="ly">YES</span></td></tr>
+                  <tr><td>S05</td><td>3.1</td><td>Business</td><td>12</td><td>Medium</td><td><span class="ln">NO</span></td></tr>
+                  <tr><td>S06</td><td>3.5</td><td>Engineering</td><td>22</td><td>Medium</td><td><span class="ly">YES</span></td></tr>
+                  <tr style="background:#edfaf3;"><td>S07</td><td>3.2</td><td>CS</td><td>18</td><td>Medium</td><td><span class="ly">YES</span></td></tr>
+                  <tr><td>S08</td><td>2.9</td><td>Business</td><td>40</td><td>High</td><td><span class="ln">NO</span></td></tr>
+                  <tr><td>S09</td><td>3.0</td><td>Engineering</td><td>35</td><td>High</td><td><span class="ln">NO</span></td></tr>
+                  <tr style="background:#fff3ee;"><td>S10</td><td>3.4</td><td>CS</td><td>32</td><td>High</td><td><span class="ln">NO</span></td></tr>
                 </tbody>
               </table>
             </div>
-            <div class="callout" style="margin-bottom:0;">
+            <div class="callout">
               <span class="ci">🤔</span>
-              <span>S07 and Alex: same GPA, same major, both work 30 hrs/week — S07 was <strong>not admitted</strong>. S10: same GPA, same major, works 20 hrs/week — <strong>admitted</strong>. GPA alone doesn't decide it. The algorithm has to find which <em>combination</em> of features matters.</span>
+              <span>Look at S07 and S10 — both CS majors. S07 has a <strong>lower GPA (3.2)</strong> and was <strong style="color:var(--accent3);">admitted</strong>. S10 has a <strong>higher GPA (3.4)</strong> and was <strong style="color:var(--accent);">not admitted</strong>. What's different? Work hours — S07 works 18 hrs/week, S10 works 32. Now look at Alex: GPA 3.4, works 30 hrs/week. Same profile as S10. <strong>What does that tell you?</strong></span>
+            </div>
+            <div style="display:flex;justify-content:flex-end;margin-top:16px;">
+              <button onclick="showStep(2)" style="background:var(--ink);color:var(--paper);border:none;padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:700;cursor:pointer;">The Model →</button>
             </div>
           </div>
-        </div>
 
-        <!-- BEAT 2: THE TREE -->
-        <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px;">
-          <div style="background:var(--ink2);padding:12px 18px;display:flex;align-items:center;gap:10px;">
-            <span style="background:var(--accent);color:var(--ink);font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;">Step 2</span>
-            <span style="font-family:var(--sans);font-weight:700;font-size:14px;color:var(--paper);">What the Algorithm Learned — the Decision Tree</span>
-          </div>
-          <div style="padding:18px 20px;background:var(--card);">
-            <p style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.6;">The algorithm studied all 10 students and built this tree automatically. It figured out on its own that <strong style="color:var(--ink);">GPA</strong> is the most important first question, and <strong style="color:var(--ink);">work hours</strong> breaks the tie when GPA is below 3.5. Click any node to understand why.</p>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:32px 20px;overflow-x:auto;">
-              <svg id="treeSvg" viewBox="-20 0 820 310" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:560px;font-family:'JetBrains Mono',monospace;cursor:pointer;">
-
-                <!-- Branch lines -->
+          <!-- PANEL 2: DECISION TREE -->
+          <div id="spanel2" style="display:none;">
+            <div style="background:var(--ink);border-radius:10px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:16px;">
+              <div style="font-size:32px;">🌳</div>
+              <div>
+                <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">Stage 1 · The Model is a...</div>
+                <div style="font-family:var(--sans);font-size:1.3rem;font-weight:800;color:var(--paper);margin-bottom:4px;">Decision Tree</div>
+                <div style="font-size:13px;color:#9ca3af;">Asks a series of yes/no questions found automatically from the data — fully interpretable, you can follow every decision.</div>
+              </div>
+            </div>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.6;">The algorithm studied all 10 students and built this tree automatically. No one decided that 3.5 was the right GPA threshold. <strong style="color:var(--ink);">The machine found those splits from the data.</strong> Click any node.</p>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 16px;overflow-x:auto;">
+              <svg id="treeSvg" viewBox="-20 0 820 310" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:520px;font-family:'JetBrains Mono',monospace;cursor:pointer;">
                 <line x1="380" y1="82" x2="210" y2="158" stroke="#9ca3af" stroke-width="2"/>
                 <line x1="380" y1="82" x2="570" y2="158" stroke="#9ca3af" stroke-width="2"/>
                 <line x1="570" y1="222" x2="470" y2="268" stroke="#9ca3af" stroke-width="2"/>
                 <line x1="570" y1="222" x2="670" y2="268" stroke="#9ca3af" stroke-width="2"/>
-
-                <!-- Edge labels -->
                 <rect x="240" y="104" width="40" height="18" rx="3" fill="#edfaf3" stroke="#38b07a" stroke-width="1"/>
                 <text x="260" y="117" fill="#2a7a4b" font-size="10" text-anchor="middle" font-weight="700">YES</text>
-
                 <rect x="486" y="104" width="34" height="18" rx="3" fill="#fff3ee" stroke="#e8873a" stroke-width="1"/>
                 <text x="503" y="117" fill="#c85a1a" font-size="10" text-anchor="middle" font-weight="700">NO</text>
-
                 <rect x="486" y="234" width="40" height="18" rx="3" fill="#edfaf3" stroke="#38b07a" stroke-width="1"/>
                 <text x="506" y="247" fill="#2a7a4b" font-size="10" text-anchor="middle" font-weight="700">YES</text>
-
                 <rect x="618" y="234" width="34" height="18" rx="3" fill="#fff3ee" stroke="#e8873a" stroke-width="1"/>
                 <text x="635" y="247" fill="#c85a1a" font-size="10" text-anchor="middle" font-weight="700">NO</text>
-
-                <!-- ROOT NODE -->
                 <rect x="278" y="18" width="204" height="64" rx="10" fill="#0f1117" stroke="#e8873a" stroke-width="2.5" onclick="tI('gpa')" style="cursor:pointer;"/>
                 <text x="380" y="42" fill="#e8873a" font-size="9" text-anchor="middle" letter-spacing="1.5">DECISION QUESTION</text>
                 <text x="380" y="64" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle">GPA ≥ 3.5 ?</text>
-
-                <!-- LEFT LEAF — Admitted -->
                 <rect x="112" y="148" width="196" height="68" rx="10" fill="#edfaf3" stroke="#38b07a" stroke-width="2" onclick="tI('y1')" style="cursor:pointer;"/>
                 <text x="210" y="172" fill="#2a7a4b" font-size="12" text-anchor="middle" font-weight="700">✓  ADMITTED</text>
                 <text x="210" y="190" fill="#3a3a3a" font-size="11" text-anchor="middle">GPA is strong enough</text>
                 <text x="210" y="207" fill="#6b7280" font-size="10" text-anchor="middle">5 of 5 → admitted</text>
-
-                <!-- RIGHT INTERNAL NODE -->
                 <rect x="468" y="148" width="204" height="64" rx="10" fill="#0f1117" stroke="#3a7be8" stroke-width="2.5" onclick="tI('work')" style="cursor:pointer;"/>
                 <text x="570" y="172" fill="#3a7be8" font-size="9" text-anchor="middle" letter-spacing="1.5">NEXT QUESTION</text>
                 <text x="570" y="194" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Work Hrs ≤ 25 ?</text>
-
-                <!-- LEAF — Admitted (low work) -->
                 <rect x="376" y="262" width="180" height="40" rx="8" fill="#edfaf3" stroke="#38b07a" stroke-width="2" onclick="tI('y2')" style="cursor:pointer;"/>
                 <text x="466" y="287" fill="#2a7a4b" font-size="12" text-anchor="middle" font-weight="700">✓  ADMITTED</text>
-
-                <!-- LEAF — Not admitted -->
                 <rect x="576" y="262" width="188" height="40" rx="8" fill="#fff3ee" stroke="#e8873a" stroke-width="2" onclick="tI('no')" style="cursor:pointer;"/>
                 <text x="670" y="287" fill="#c85a1a" font-size="12" text-anchor="middle" font-weight="700">✗  NOT ADMITTED</text>
-
               </svg>
             </div>
-            <div id="tinfo" class="callout" style="display:none;margin-top:14px;margin-bottom:0;"><span class="ci">ℹ️</span><span id="ttext"></span></div>
+            <div id="tinfo" class="callout" style="display:none;margin-top:12px;"><span class="ci">ℹ️</span><span id="ttext"></span></div>
+            <div style="display:flex;justify-content:space-between;margin-top:16px;">
+              <button onclick="showStep(1)" style="background:var(--paper);color:var(--ink);border:1px solid var(--border);padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;">← Training Data</button>
+              <button onclick="showStep(3)" style="background:var(--ink);color:var(--paper);border:none;padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:700;cursor:pointer;">Evaluate →</button>
+            </div>
           </div>
-        </div>
 
-        <!-- BEAT 3: PREDICT FOR ALEX -->
-        <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px;">
-          <div style="background:var(--ink2);padding:12px 18px;display:flex;align-items:center;gap:10px;">
-            <span style="background:var(--accent);color:var(--ink);font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;">Step 3</span>
-            <span style="font-family:var(--sans);font-weight:700;font-size:14px;color:var(--paper);">Run a Prediction — Try Alex's Profile</span>
+          <!-- PANEL 3: EVALUATE -->
+          <div id="spanel3" style="display:none;">
+            <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">We hold back some students from training and test the model on them. Every outcome falls into one of four cells. Precision reads across, Recall reads down.</p>
+            <div style="display:flex;gap:6px;margin-bottom:16px;font-family:var(--mono);">
+              <div style="display:flex;flex-direction:column;justify-content:center;margin-top:88px;">
+                <div style="background:#f0f0ee;border:1px solid #d8d4cc;border-radius:6px;padding:10px 8px;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);display:flex;align-items:center;gap:8px;min-height:180px;">
+                  <span style="font-size:12px;font-weight:800;color:var(--ink);letter-spacing:0.06em;">RECALL ↓</span>
+                  <span style="font-size:11px;color:var(--muted);">4 ÷ (4+2) = 67%</span>
+                </div>
+              </div>
+              <div style="flex:1;">
+                <div style="display:grid;grid-template-columns:110px 1fr 1fr;margin-bottom:4px;">
+                  <div></div>
+                  <div style="grid-column:2/4;background:#f0f0ee;border:1px solid #d8d4cc;border-radius:6px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:11px;color:var(--ink);font-weight:700;letter-spacing:0.06em;">PRECISION → reads across this row</span>
+                    <span style="font-size:13px;color:var(--ink);font-weight:800;">4 ÷ (4+1) = 80%</span>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:110px 1fr 1fr;gap:0;">
+                  <div></div>
+                  <div style="padding:8px 12px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:0.08em;border-bottom:2px solid var(--border);">ACTUAL: Admitted</div>
+                  <div style="padding:8px 12px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:0.08em;border-bottom:2px solid var(--border);">ACTUAL: Not Admitted</div>
+                  <div style="padding:8px 10px;display:flex;align-items:center;font-size:10px;color:var(--muted);letter-spacing:0.06em;border-right:2px solid var(--border);">PREDICTED:<br>Admitted</div>
+                  <div style="background:#edfaf3;border:2px solid #38b07a;border-radius:8px 0 0 0;padding:14px;margin:4px 2px 2px 0;">
+                    <div style="font-size:28px;font-weight:800;color:#2a7a4b;line-height:1;margin-bottom:3px;">4</div>
+                    <div style="font-size:10px;color:#2a7a4b;letter-spacing:0.08em;margin-bottom:3px;">TRUE POSITIVE</div>
+                    <div style="font-size:11px;color:#3a3a3a;">Correctly said YES</div>
+                  </div>
+                  <div style="background:#fff8f2;border:2px solid #e8873a;border-radius:0 8px 0 0;padding:14px;margin:4px 0 2px 2px;">
+                    <div style="font-size:28px;font-weight:800;color:#c85a1a;line-height:1;margin-bottom:3px;">1</div>
+                    <div style="font-size:10px;color:#c85a1a;letter-spacing:0.08em;margin-bottom:3px;">FALSE POSITIVE</div>
+                    <div style="font-size:11px;color:#3a3a3a;">Said YES — was wrong</div>
+                  </div>
+                  <div style="padding:8px 10px;display:flex;align-items:center;font-size:10px;color:var(--muted);letter-spacing:0.06em;border-right:2px solid var(--border);">PREDICTED:<br>Not Admitted</div>
+                  <div style="background:#ffecec;border:2px solid #c82020;border-radius:0 0 0 8px;padding:14px;margin:2px 2px 4px 0;">
+                    <div style="font-size:28px;font-weight:800;color:#c82020;line-height:1;margin-bottom:3px;">2</div>
+                    <div style="font-size:10px;color:#c82020;letter-spacing:0.08em;margin-bottom:3px;">FALSE NEGATIVE ⚠️</div>
+                    <div style="font-size:11px;color:#3a3a3a;margin-bottom:3px;">Said NO — would have got in</div>
+                    <div style="font-size:11px;color:#c82020;font-weight:600;">May never apply</div>
+                  </div>
+                  <div style="background:#edfaf3;border:2px solid #38b07a;border-radius:0 0 8px 0;padding:14px;margin:2px 0 4px 2px;">
+                    <div style="font-size:28px;font-weight:800;color:#2a7a4b;line-height:1;margin-bottom:3px;">3</div>
+                    <div style="font-size:10px;color:#2a7a4b;letter-spacing:0.08em;margin-bottom:3px;">TRUE NEGATIVE</div>
+                    <div style="font-size:11px;color:#3a3a3a;">Correctly said NO</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#f0f0ee;border:1px solid #d8d4cc;border-radius:6px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <div style="font-family:var(--mono);font-size:10px;color:var(--ink);font-weight:700;letter-spacing:0.08em;margin-bottom:2px;">ACCURACY — correct cells diagonal</div>
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">(TP + TN) ÷ total = (4+3) ÷ 10 = <strong>70%</strong></div>
+              </div>
+              <div style="font-size:13px;color:var(--muted);max-width:300px;line-height:1.6;">Sounds ok — but hides the 2 students told NO who would have got in. <strong style="color:var(--ink);">That's why Recall matters more here.</strong></div>
+            </div>
+            <div class="callout" style="margin-bottom:16px;">
+              <span class="ci">💬</span>
+              <span>The model is not deployed until it passes evaluation. Building and evaluating are two separate steps. Only then does it go into production.</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <button onclick="showStep(2)" style="background:var(--paper);color:var(--ink);border:1px solid var(--border);padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;">← The Model</button>
+              <button onclick="showStep(4)" style="background:var(--ink);color:var(--paper);border:none;padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:700;cursor:pointer;">Production →</button>
+            </div>
           </div>
-          <div style="padding:18px 20px;background:var(--card);">
-            <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6;">Alex's profile is pre-loaded. Change the values to see how the tree's answer changes — and trace exactly which path through the tree was followed.</p>
+
+          <!-- PANEL 4: PRODUCTION -->
+          <div id="spanel4" style="display:none;">
+            <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6;">The model passed evaluation and is now deployed. Feed it any student profile and it outputs a prediction instantly. Alex's profile is pre-loaded — change values to see how the answer changes.</p>
             <div class="pgrid">
               <div class="pf"><label>GPA</label><select id="pg"><option value="hi">3.5 or above</option><option value="lo" selected>Below 3.5</option></select></div>
               <div class="pf"><label>Work Hours / Week</label><select id="pw"><option value="lo">25 or fewer</option><option value="hi" selected>More than 25</option></select></div>
@@ -588,43 +846,89 @@
               <div class="pf"><label>Target School</label><select id="ps"><option>UC Santa Cruz</option><option>Cal Poly SLO</option><option>SF State</option><option>UC Davis</option></select></div>
             </div>
             <button class="pbtn" onclick="runPredict()">Run Prediction →</button>
-            <div class="rbox" id="rbox">
-              <div class="ri" id="ricon"></div>
-              <div class="rc"><strong id="rtitle"></strong><span id="rdetail"></span></div>
+            <div class="rbox" id="rbox"><div class="ri" id="ricon"></div><div class="rc"><strong id="rtitle"></strong><span id="rdetail"></span></div></div>
+            <div style="margin-top:16px;">
+              <button onclick="showStep(3)" style="background:var(--paper);color:var(--ink);border:1px solid var(--border);padding:9px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;">← Evaluate</button>
             </div>
           </div>
-        </div>
 
-        <!-- BEAT 4: EVALUATE -->
-        <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:22px;">
-          <div style="background:var(--ink2);padding:12px 18px;display:flex;align-items:center;gap:10px;">
-            <span style="background:var(--accent);color:var(--ink);font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;">Step 4</span>
-            <span style="font-family:var(--sans);font-weight:700;font-size:14px;color:var(--paper);">Evaluate — Is the Model Any Good?</span>
+        </div><!-- end stepper -->
+
+        <!-- WEEK 5 PREVIEW -->
+        <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:20px;margin-bottom:16px;">
+          <div style="background:var(--card);padding:14px 18px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;border-radius:10px 10px 0 0;" onclick="toggleW5(this)">
+            <span style="background:var(--accent2);color:#fff;font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;">Week 5 Preview</span>
+            <span style="font-family:var(--sans);font-weight:700;font-size:14px;color:var(--ink);">Why Decision Trees don't always work</span>
+            <span style="margin-left:auto;font-size:12px;color:var(--muted);transition:transform 0.25s;" class="w5chev">▶</span>
           </div>
-          <div style="padding:18px 20px;background:var(--card);">
-            <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6;">We hold back some students from training and test the model on them. But <em>which</em> metric matters most depends on the cost of being wrong.</p>
-            <div class="egrid">
-              <div class="ecard"><div class="em">Accuracy</div><div class="ev g">80%</div><div class="en">8 of 10 test students predicted correctly. Sounds good — but is it?</div></div>
-              <div class="ecard" style="border-color:rgba(232,135,58,0.3);background:var(--wbg);">
-                <div class="em">False Negative Rate</div><div class="ev w">30%</div>
-                <div class="en">30% of students who <em>would</em> have been admitted were told "no" — and may never apply. <strong>This is the dangerous error.</strong></div>
-              </div>
-              <div class="ecard"><div class="em">Precision</div><div class="ev g">85%</div><div class="en">When we say "admitted," we're right 85% of the time.</div></div>
-              <div class="ecard"><div class="em">Recall</div><div class="ev w">70%</div><div class="en">We only catch 70% of students who could have transferred. 30% are missed opportunities.</div></div>
+          <div style="display:none;padding:18px 20px;background:var(--card);border-top:1px solid var(--border);" class="w5body">
+            <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">The decision tree draws a hard line — one point below the threshold and you fall off a cliff. Logistic Regression replaces that sharp wall with a smooth probability curve.</p>
+            <div style="background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:20px;overflow-x:auto;">
+              <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:540px;font-family:'JetBrains Mono',monospace;">
+                <text x="170" y="22" fill="#0f1117" font-size="13" font-weight="700" text-anchor="middle" font-family="'Syne',sans-serif">Decision Tree</text>
+                <text x="170" y="38" fill="#6b7280" font-size="10" text-anchor="middle">Black &amp; White — hard threshold</text>
+                <line x1="40" y1="50" x2="40" y2="210" stroke="#c8c0b0" stroke-width="1.5"/>
+                <line x1="40" y1="210" x2="310" y2="210" stroke="#c8c0b0" stroke-width="1.5"/>
+                <text x="32" y="55" fill="#9ca3af" font-size="9" text-anchor="end">100%</text>
+                <text x="32" y="132" fill="#9ca3af" font-size="9" text-anchor="end">50%</text>
+                <text x="32" y="212" fill="#9ca3af" font-size="9" text-anchor="end">0%</text>
+                <text x="72" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">2.8</text>
+                <text x="128" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.2</text>
+                <text x="184" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.5</text>
+                <text x="240" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.8</text>
+                <text x="296" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">4.0</text>
+                <text x="175" y="238" fill="#6b7280" font-size="9" text-anchor="middle">GPA</text>
+                <rect x="41" y="130" width="143" height="79" fill="rgba(232,135,58,0.08)"/>
+                <text x="112" y="175" fill="#c85a1a" font-size="10" text-anchor="middle" font-weight="600">NOT ADMITTED</text>
+                <rect x="184" y="51" width="125" height="79" fill="rgba(56,176,122,0.08)"/>
+                <text x="246" y="96" fill="#2a7a4b" font-size="10" text-anchor="middle" font-weight="600">ADMITTED</text>
+                <line x1="41" y1="210" x2="184" y2="210" stroke="#e8873a" stroke-width="2.5"/>
+                <line x1="184" y1="210" x2="184" y2="51" stroke="#e8873a" stroke-width="2.5" stroke-dasharray="4,2"/>
+                <line x1="184" y1="51" x2="309" y2="51" stroke="#38b07a" stroke-width="2.5"/>
+                <text x="184" y="246" fill="#0f1117" font-size="9" text-anchor="middle" font-weight="700">GPA 3.5 — hard threshold</text>
+                <circle cx="156" cy="210" r="5" fill="#0f1117"/>
+                <text x="150" y="200" fill="#0f1117" font-size="9" text-anchor="middle" font-weight="700">Alex</text>
+                <text x="150" y="191" fill="#c85a1a" font-size="8" text-anchor="middle">GPA 3.4 → NO</text>
+                <line x1="360" y1="40" x2="360" y2="230" stroke="#e2ddd4" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="548" y="22" fill="#0f1117" font-size="13" font-weight="700" text-anchor="middle" font-family="'Syne',sans-serif">Logistic Regression</text>
+                <text x="548" y="38" fill="#6b7280" font-size="10" text-anchor="middle">The grey — smooth probability curve</text>
+                <line x1="418" y1="50" x2="418" y2="210" stroke="#c8c0b0" stroke-width="1.5"/>
+                <line x1="418" y1="210" x2="688" y2="210" stroke="#c8c0b0" stroke-width="1.5"/>
+                <text x="410" y="55" fill="#9ca3af" font-size="9" text-anchor="end">100%</text>
+                <text x="410" y="132" fill="#9ca3af" font-size="9" text-anchor="end">50%</text>
+                <text x="410" y="212" fill="#9ca3af" font-size="9" text-anchor="end">0%</text>
+                <text x="450" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">2.8</text>
+                <text x="506" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.2</text>
+                <text x="548" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.5</text>
+                <text x="604" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">3.8</text>
+                <text x="660" y="224" fill="#9ca3af" font-size="9" text-anchor="middle">4.0</text>
+                <text x="553" y="238" fill="#6b7280" font-size="9" text-anchor="middle">GPA</text>
+                <rect x="487" y="51" width="134" height="158" fill="rgba(0,0,0,0.04)" rx="4"/>
+                <text x="554" y="245" fill="#9ca3af" font-size="8" text-anchor="middle">grey zone</text>
+                <path d="M 419,205 C 430,204 440,202 450,200 C 462,197 472,190 484,180 C 496,168 506,152 518,138 C 530,124 540,112 552,102 C 564,92 574,78 586,68 C 598,60 610,56 622,54 C 634,52 650,51 688,51" fill="none" stroke="#3a7be8" stroke-width="2.5"/>
+                <line x1="418" y1="130" x2="688" y2="130" stroke="#e2ddd4" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="534" y1="144" x2="534" y2="210" stroke="#0f1117" stroke-width="1" stroke-dasharray="3,2"/>
+                <line x1="418" y1="144" x2="534" y2="144" stroke="#0f1117" stroke-width="1" stroke-dasharray="3,2"/>
+                <circle cx="534" cy="144" r="5" fill="#0f1117"/>
+                <text x="528" y="134" fill="#0f1117" font-size="9" text-anchor="middle" font-weight="700">Alex</text>
+                <text x="528" y="125" fill="#3a7be8" font-size="8" text-anchor="middle">GPA 3.4 → 58%</text>
+                <text x="398" y="147" fill="#3a7be8" font-size="9" text-anchor="end">58%</text>
+                <circle cx="630" cy="54" r="4" fill="#38b07a" opacity="0.8"/>
+                <text x="630" y="46" fill="#2a7a4b" font-size="8" text-anchor="middle">GPA 3.9 → 94%</text>
+                <circle cx="462" cy="196" r="4" fill="#e8873a" opacity="0.8"/>
+                <text x="462" y="188" fill="#c85a1a" font-size="8" text-anchor="middle">GPA 2.9 → 12%</text>
+              </svg>
             </div>
             <div class="callout" style="margin-top:14px;margin-bottom:0;">
-              <span class="ci">💬</span>
-              <span>Notice that Precision and Recall are <em>evaluation metrics</em> — they measure the model after it's built. They are not part of building it. This is a key distinction in ML: building the model vs. evaluating the model are two separate steps.</span>
+              <span class="ci">💡</span>
+              <span>Alex has a 3.4 GPA. The decision tree says NO. Logistic Regression says <strong>58%</strong> — right in the grey zone. A 58% probability means: apply, but also apply to safer schools. <strong>The decision tree gave false certainty. Logistic regression shows the grey.</strong></span>
             </div>
           </div>
         </div>
 
-        <div class="lcard">
-          <div class="llabel">Limitation of Stage 1 — what motivates Stage 2</div>
-          <div class="lbody"><strong>Alex got a "YES" — but can she afford it?</strong> Classification tells Alex which schools will likely accept her. It says nothing about financial aid. Getting in and being able to attend are two different questions. Alex now asks: <em>"How much aid will I likely receive?"</em> — and that requires predicting a <strong>number</strong>, not a yes/no. That is a regression problem.</div>
-          <span class="lnext">→ Stage 2: Regression · Weeks 7–8</span>
-        </div>
-      </div>
+
+
+      </div>      </div>
     </div>
 
     <!-- STAGE 2 -->
@@ -655,7 +959,7 @@
         </div>
         <div class="lcard">
           <div class="llabel">Limitation of Stage 2 — what motivates Stage 3</div>
-          <div class="lbody"><strong>Alex is still only evaluating schools she already knows.</strong>Stages 1 and 2 answer questions about specific schools Alex chose. But what if the best-fit school is one she's never heard of? Finding natural groups of schools that match different student profiles requires <strong>clustering</strong> — finding structure without labels.</div>
+          <div class="lbody"><strong>Alex is still only evaluating schools she already knows.</strong> What if the best-fit school is one she's never heard of? Finding natural groups of schools requires <strong>clustering</strong> — finding structure without labels.</div>
           <span class="lnext">→ Stage 3: Clustering · Weeks 9–10</span>
         </div>
       </div>
@@ -676,7 +980,7 @@
         <div class="caplabel">What Alex can now ask</div>
         <ul class="caplist">
           <li>Discover groups of schools with similar admit profiles — no labeled training data needed</li>
-          <li>Find out which cluster Alex's profile falls into — "you match mid-selectivity STEM schools"</li>
+          <li>Find out which cluster Alex's profile falls into</li>
           <li>Understand unsupervised learning: no labels, the algorithm finds structure on its own</li>
           <li class="no">Still not learning from what similar students actually chose to do</li>
         </ul>
@@ -690,7 +994,7 @@
         </div>
         <div class="lcard">
           <div class="llabel">Limitation of Stage 3 — what motivates Stage 4</div>
-          <div class="lbody"><strong>Clustering finds groups — but doesn't use what real students did.</strong>The most powerful signal is: <em>De Anza students with a profile like Alex's transferred to these specific schools at high rates.</em> That's <strong>recommendation</strong> — and it's how the best transfer counselors actually think.</div>
+          <div class="lbody"><strong>Clustering finds groups — but doesn't use what real students did.</strong> The most powerful signal is: <em>De Anza students with a profile like Alex's transferred to these specific schools at high rates.</em> That's <strong>recommendation</strong>.</div>
           <span class="lnext">→ Stage 4: Recommendation · Weeks 11–12</span>
         </div>
       </div>
@@ -713,7 +1017,7 @@
           <li>Get school recommendations based on actual outcomes from students with similar profiles</li>
           <li>Surface schools Alex never considered but that students like her successfully transferred to</li>
           <li>Understand collaborative filtering — the same algorithm behind Netflix and Spotify</li>
-          <li class="no">Still can't understand Alex's goals described in her own words — that needs something deeper</li>
+          <li class="no">Still can't understand Alex's goals described in her own words</li>
         </ul>
         <div class="pipelabel">How it's built</div>
         <div class="pipeline">
@@ -724,7 +1028,7 @@
         </div>
         <div class="lcard blue">
           <div class="llabel">Where Stage 4 leads — Preview of CIS 17B</div>
-          <div class="lbody"><strong>What if Alex could describe her goals in plain language?</strong><em>"I want a school with strong industry connections in the Bay Area, and I'm interested in AI research."</em> Matching natural language to structured school data requires neural networks and large language models — the subject of <strong>CIS 17B</strong>.</div>
+          <div class="lbody"><strong>What if Alex could describe her goals in plain language?</strong> <em>"I want a school with strong industry connections in the Bay Area, and I'm interested in AI research."</em> Matching natural language to structured school data requires neural networks and large language models — the subject of <strong>CIS 17B</strong>.</div>
           <span class="lnext">→ CIS 17B: Deep Learning · Neural Networks · LLMs</span>
         </div>
       </div>
@@ -760,6 +1064,8 @@
     </div>
 
   </div><!-- end stages -->
+    </div>
+  </div>
 
 </div><!-- end wrap -->
 
@@ -770,6 +1076,28 @@
 
 <script>
 // Tree node explanations
+function toggleW5(hd) {
+  const body = hd.parentElement.querySelector('.w5body');
+  const chev = hd.querySelector('.w5chev');
+  const open = body.style.display === 'block';
+  body.style.display = open ? 'none' : 'block';
+  chev.style.transform = open ? '' : 'rotate(90deg)';
+}
+
+function showStep(n) {
+  [1,2,3,4].forEach(i => {
+    const panel = document.getElementById('spanel'+i);
+    const tab = document.getElementById('stab'+i);
+    if (panel) panel.style.display = (i===n) ? 'block' : 'none';
+    if (tab) {
+      tab.style.background = (i===n) ? 'var(--ink)' : 'var(--card)';
+      tab.style.color = (i===n) ? 'var(--accent)' : 'var(--muted)';
+      tab.style.fontWeight = (i===n) ? '700' : '400';
+    }
+  });
+}
+
+
 const treeTexts = {
   gpa:'GPA ≥ 3.5 was chosen as the root split because it separates admitted from not-admitted students most cleanly. The algorithm measured this automatically using information gain — we never told it GPA was important.',
   y1:'All 5 students with GPA ≥ 3.5 were admitted. Pure leaf — no further questions needed. Simple and interpretable.',
