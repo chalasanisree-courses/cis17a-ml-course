@@ -276,7 +276,7 @@
       <span class="sp" onclick="goToStage('stage2')" style="cursor:pointer;">Stage 2 · Regression</span>
       <span class="sp" onclick="goToStage('stage3')" style="cursor:pointer;">Stage 3 · Clustering</span>
       <span class="sp" onclick="goToStage('stage4')" style="cursor:pointer;">Stage 4 · Recommendation</span>
-      <span class="sp b17" onclick="goToStage('stage5')" style="cursor:pointer;">→ 17B</span><span class="sp b17" onclick="goToStage('stage6')" style="cursor:pointer;margin-left:6px;">→ 17C</span>
+      <span class="sp b17" style="opacity:0.6;cursor:default;">→ CIS 78 · 80 · 81</span>
     </div>
   </div>
 </div>
@@ -394,11 +394,9 @@
     </thead>
     <tbody>
       <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 1</td><td class="q-cell">"Will UC Santa Cruz accept me?"</td><td class="algo-cell">Classification</td><td class="phase-cell">Phase 2 · Weeks 4–6</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 2</td><td class="q-cell">"How much aid will I get from UC Santa Cruz?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 3</td><td class="q-cell">"I like UC Santa Cruz — what other schools are similar?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-coming"></span>Stage 4</td><td class="q-cell">"Where did De Anza students like me actually transfer?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17B</td><td class="q-cell">"Can the machine decide which features matter on its own?"</td><td class="algo-cell">Deep Neural Networks · Feature Learning</td><td class="phase-cell">CIS 17B</td></tr>
-      <tr><td class="stage-cell"><span class="dot dot-17b"></span>→ 17C</td><td class="q-cell">"Find me the right school — I'll describe it in my own words."</td><td class="algo-cell">Agentic AI · LLMs · Tool Use</td><td class="phase-cell">CIS 17C</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 2</td><td class="q-cell">"How much aid will I get from UC Santa Cruz?"</td><td class="algo-cell">Regression</td><td class="phase-cell">Phase 3 · Weeks 7–8</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 3</td><td class="q-cell">"I like UC Santa Cruz — what other schools are similar?"</td><td class="algo-cell">Clustering</td><td class="phase-cell">Phase 4 · Weeks 9–10</td></tr>
+      <tr><td class="stage-cell"><span class="dot dot-live"></span>Stage 4</td><td class="q-cell">"Where did De Anza students like me actually transfer?"</td><td class="algo-cell">Recommendation</td><td class="phase-cell">Phase 5 · Weeks 11–12</td></tr>
     </tbody>
   </table>
 
@@ -1043,217 +1041,39 @@
         </div>
         <div class="lcard blue">
           <div class="llabel">Where Stage 4 leads — The limit of all of 17A</div>
-          <div class="lbody"><strong>Every model we built this semester made the same assumption — we decided which features to give it.</strong> GPA. Major. Work hours. Aid need. We told the machine what to look at. What if we just gave it everything — every data point from ASSIST.org — and let it figure out which features matter? That's not possible with classical ML. It requires a much deeper neural network. That's where <strong>CIS 17B</strong> begins.</div>
-          <span class="lnext">→ CIS 17B: Deep Learning · Let the machine decide which features matter</span>
+          <div class="lbody"><strong>Every model we built this semester made the same assumption — we decided which features to give it.</strong> GPA. Major. Work hours. Aid need. We told the machine what to look at. What if we just gave it everything — every data point from ASSIST.org — and let it figure out which features matter? That's not possible with classical ML. It requires deep neural networks. That's where <strong>CIS 78 — Introduction to Deep Learning</strong> begins.</div>
+          <span class="lnext">→ CIS 78: Introduction to Deep Learning</span>
         </div>
       </div>
     </div>
 
-    <!-- 17B -->
-    <div class="scard s17b" id="stage5">
-      <div class="strg" onclick="document.getElementById('stage5').classList.toggle('open')">
-        <div class="snum">17B</div>
-        <div class="scontent">
-          <div class="sq">"We told the machine which features to look at. What if we stopped doing that?" <em>— CIS 17B</em></div>
-          <div class="atags"><span class="at b2">Deep Neural Networks</span><span class="at b2">Feature Learning</span><span class="at b2">ASSIST.org Data</span><span class="at b2">Unstructured Input</span></div>
-        </div>
-        <div class="smeta"><span class="b17badge">CIS 17B</span></div>
-        <div class="schev-col"><span class="schev">▶</span></div>
-      </div>
-      <div class="sbody" style="border-top:1px solid rgba(58,123,232,0.15);">
 
-        <!-- Big shift card -->
-        <div style="background:var(--ink);border-radius:10px;padding:24px 28px;margin-bottom:20px;">
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">The big shift in 17B</div>
-          <div style="font-size:15px;color:var(--paper);line-height:1.8;margin-bottom:16px;">
-            When the algorithm is a <strong style="color:var(--accent);">Neural Network</strong> — and the network is <strong style="color:var(--accent);">sufficiently deep</strong> — we find that we no longer have to tell the machine which features are important. <strong style="color:var(--accent3);">The machine figures that out automatically from the raw data.</strong>
-          </div>
-          <div style="font-size:15px;color:var(--paper);line-height:1.8;">
-            And as a bonus — a sufficiently deep network also becomes capable of digesting data that is not just structured row-column data. Images, text, audio — data that has no columns at all.
-          </div>
+    <!-- WHAT COMES NEXT -->
+    <div style="background:var(--ink);border-radius:12px;padding:28px 32px;margin-top:8px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(58,123,232,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;">Where College Advisor goes next</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:0;">
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px 18px;">
+          <div style="font-family:var(--mono);font-size:10px;color:#a78bfa;letter-spacing:0.08em;margin-bottom:8px;">CIS 78 · Deep Learning</div>
+          <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:6px;">Algorithm: Neural Networks</div>
+          <div style="font-size:12px;color:#9ca3af;line-height:1.6;">Feature selection: <strong style="color:#c4b5fd;">not required</strong> — the network learns which features matter from raw data. Feed it everything from ASSIST.org and let it discover what predicts admission.</div>
         </div>
 
-        <div class="pipelabel">How the model evolves — 17A vs 17B</div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px 16px;overflow-x:auto;margin-bottom:20px;">
-          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:560px;font-family:'JetBrains Mono',monospace;">
-            <text x="174" y="22" fill="#9ca3af" font-size="10" text-anchor="middle" font-weight="700" letter-spacing="0.5">17A — YOU SELECT FEATURES</text>
-            <rect x="4" y="36" width="120" height="68" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
-            <text x="64" y="60" fill="#9ca3af" font-size="9" text-anchor="middle">YOU DECIDE</text>
-            <text x="64" y="78" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">GPA · Major</text>
-            <text x="64" y="93" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Work hrs · Aid</text>
-            <line x1="124" y1="70" x2="144" y2="70" stroke="#c8c0b0" stroke-width="1.5"/>
-            <polygon points="144,65 154,70 144,75" fill="#c8c0b0"/>
-            <rect x="156" y="28" width="140" height="84" rx="8" fill="#e8873a" stroke="#e8873a" stroke-width="2"/>
-            <text x="226" y="52" fill="rgba(255,255,255,0.7)" font-size="9" text-anchor="middle">17A MODEL</text>
-            <text x="226" y="72" fill="#ffffff" font-size="20" text-anchor="middle">🧠</text>
-            <text x="226" y="92" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Classical ML</text>
-            <text x="226" y="104" fill="rgba(255,255,255,0.7)" font-size="9" text-anchor="middle">learns patterns</text>
-            <line x1="340" y1="20" x2="340" y2="200" stroke="#e2ddd4" stroke-width="1" stroke-dasharray="4,4"/>
-            <text x="340" y="14" fill="#e2ddd4" font-size="9" text-anchor="middle">→ 17B</text>
-            <text x="524" y="22" fill="#3a7be8" font-size="10" text-anchor="middle" font-weight="700" letter-spacing="0.5">17B — MACHINE SELECTS FEATURES</text>
-            <rect x="356" y="36" width="140" height="68" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
-            <text x="426" y="60" fill="#9ca3af" font-size="9" text-anchor="middle">RAW DATA</text>
-            <text x="426" y="78" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">Everything from</text>
-            <text x="426" y="93" fill="#0f1117" font-size="11" font-weight="600" text-anchor="middle">ASSIST.org</text>
-            <line x1="496" y1="70" x2="516" y2="70" stroke="#c8c0b0" stroke-width="1.5"/>
-            <polygon points="516,65 526,70 516,75" fill="#c8c0b0"/>
-            <rect x="528" y="28" width="160" height="84" rx="8" fill="#1a1a2e" stroke="#3a7be8" stroke-width="2"/>
-            <text x="608" y="52" fill="#a78bfa" font-size="9" text-anchor="middle">17B MODEL</text>
-            <text x="608" y="72" fill="#ffffff" font-size="20" text-anchor="middle">🧠</text>
-            <text x="608" y="92" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Deep Neural Network</text>
-            <text x="608" y="104" fill="#c4b5fd" font-size="9" text-anchor="middle">discovers its own features</text>
-            <rect x="4" y="128" width="292" height="52" rx="6" fill="#fff8f2" stroke="rgba(232,135,58,0.3)" stroke-width="1"/>
-            <text x="150" y="150" fill="#c85a1a" font-size="10" text-anchor="middle">⚠️ Human bottleneck</text>
-            <text x="150" y="168" fill="#6b7280" font-size="10" text-anchor="middle">Miss patterns we didn't think to look for</text>
-            <rect x="356" y="128" width="332" height="52" rx="6" fill="#eef2ff" stroke="rgba(58,123,232,0.3)" stroke-width="1"/>
-            <text x="522" y="150" fill="#2a5ab8" font-size="10" text-anchor="middle">✓ No feature engineering needed</text>
-            <text x="522" y="168" fill="#6b7280" font-size="10" text-anchor="middle">Finds patterns humans would never think to look for</text>
-          </svg>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px 18px;">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--accent3);letter-spacing:0.08em;margin-bottom:8px;">CIS 80 · NLP</div>
+          <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:6px;">Algorithm: Transformers · LLMs</div>
+          <div style="font-size:12px;color:#9ca3af;line-height:1.6;">Alex stops filling in dropdowns. She describes her goals in plain English — the model understands what she means and matches it to schools.</div>
         </div>
 
-        <div class="caplabel">The full learning progression</div>
-        <table class="map-table">
-          <thead>
-            <tr><th>Course</th><th>Learning Type</th><th>Feature Handling</th><th>Data Type</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="stage-cell"><span class="dot dot-live"></span>17A · Supervised</td>
-              <td class="algo-cell">Supervised Learning</td>
-              <td class="q-cell">Human-selected features</td>
-              <td class="phase-cell">Structured</td>
-            </tr>
-            <tr>
-              <td class="stage-cell"><span class="dot dot-live"></span>17A · Unsupervised</td>
-              <td class="algo-cell">Unsupervised Learning</td>
-              <td class="q-cell">Human-selected features</td>
-              <td class="phase-cell">Structured</td>
-            </tr>
-            <tr>
-              <td class="stage-cell"><span class="dot dot-coming"></span>17B · Deep Learning</td>
-              <td class="algo-cell">Deep Neural Networks</td>
-              <td class="q-cell">Machine figures out which features matter</td>
-              <td class="phase-cell">Structured + Unstructured</td>
-            </tr>
-            <tr>
-              <td class="stage-cell"><span class="dot dot-17b"></span>17C · Agentic AI</td>
-              <td class="algo-cell">Agentic Systems</td>
-              <td class="q-cell">Pre-trained + tool use</td>
-              <td class="phase-cell">Unstructured · Multi-modal</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="callout" style="margin-top:14px;margin-bottom:0;">
-          <span class="ci">💡</span>
-          <span>One insight runs through all three courses: <strong>who decides what matters?</strong> In 17A, you do. In 17B, the machine does. In 17C, the machine not only decides — it reasons, plans, and acts.</span>
-        </div>
-      </div>
-    <!-- 17C -->
-    <div class="scard s17b" id="stage6">
-      <div class="strg" onclick="document.getElementById('stage6').classList.toggle('open')">
-        <div class="snum">17C</div>
-        <div class="scontent">
-          <div class="sq">"Find me the right school — I'll describe what I want in my own words." <em>— CIS 17C</em></div>
-          <div class="atags"><span class="at b2">Agentic AI</span><span class="at b2">LLMs</span><span class="at b2">Tool Use</span><span class="at b2">Multi-modal</span><span class="at b2">RAG</span></div>
-        </div>
-        <div class="smeta"><span class="b17badge">CIS 17C</span></div>
-        <div class="schev-col"><span class="schev">▶</span></div>
-      </div>
-      <div class="sbody" style="border-top:1px solid rgba(58,123,232,0.15);">
-        <div class="caplabel">What the agent can do</div>
-        <ul class="caplist">
-          <li>Alex describes her goals in plain language — "I want a Bay Area school with strong CS and industry connections"</li>
-          <li>The agent interprets her intent, calls the 17B College Advisor model, queries school databases, checks financial aid APIs</li>
-          <li>Reasons over the results and generates a personalized recommendation — not just a ranked list, but an explanation</li>
-          <li>The 17A and 17B models you built become components inside a larger agentic system</li>
-        </ul>
-
-        <div style="background:var(--ink);border-radius:10px;padding:20px 24px;margin:20px 0;">
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">The three-course arc</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-            <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 16px;text-align:center;">
-              <div style="font-family:var(--mono);font-size:9px;color:#9ca3af;letter-spacing:0.1em;margin-bottom:8px;">CIS 17A</div>
-              <div style="font-size:1.1rem;margin-bottom:6px;">📊</div>
-              <div style="font-size:13px;font-weight:700;color:var(--paper);margin-bottom:4px;">Learn</div>
-              <div style="font-size:11px;color:#9ca3af;line-height:1.5;">You tell the machine which features matter. It learns the patterns.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 16px;text-align:center;">
-              <div style="font-family:var(--mono);font-size:9px;color:#9ca3af;letter-spacing:0.1em;margin-bottom:8px;">CIS 17B</div>
-              <div style="font-size:1.1rem;margin-bottom:6px;">🧠</div>
-              <div style="font-size:13px;font-weight:700;color:var(--paper);margin-bottom:4px;">Discover</div>
-              <div style="font-size:11px;color:#9ca3af;line-height:1.5;">You give raw data. The machine figures out which features matter on its own.</div>
-            </div>
-            <div style="background:rgba(232,135,58,0.15);border:1px solid rgba(232,135,58,0.3);border-radius:8px;padding:14px 16px;text-align:center;">
-              <div style="font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:0.1em;margin-bottom:8px;">CIS 17C</div>
-              <div style="font-size:1.1rem;margin-bottom:6px;">🤖</div>
-              <div style="font-size:13px;font-weight:700;color:var(--paper);margin-bottom:4px;">Act</div>
-              <div style="font-size:11px;color:#9ca3af;line-height:1.5;">Machines reason, plan, and call other models to complete complex tasks.</div>
-            </div>
-          </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px 18px;">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.08em;margin-bottom:8px;">CIS 81 · Agentic Systems</div>
+          <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:6px;">Algorithm: Agents · Tool Use</div>
+          <div style="font-size:12px;color:#9ca3af;line-height:1.6;">College Advisor doesn't just predict — it acts. Queries school databases, checks aid eligibility, schedules campus visits, generates a personalized plan.</div>
         </div>
 
-        <div class="pipelabel">Agentic System — how it works</div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 16px;overflow-x:auto;margin-bottom:16px;">
-          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:560px;font-family:'JetBrains Mono',monospace;">
-
-            <!-- Alex input (left) -->
-            <rect x="4" y="116" width="120" height="68" rx="8" fill="#f7f4ee" stroke="#c8c0b0" stroke-width="1.5"/>
-            <text x="64" y="140" fill="#9ca3af" font-size="9" text-anchor="middle" letter-spacing="0.5">ALEX SAYS</text>
-            <text x="64" y="158" fill="#0f1117" font-size="10" font-weight="600" text-anchor="middle">"Bay Area, strong</text>
-            <text x="64" y="172" fill="#0f1117" font-size="10" font-weight="600" text-anchor="middle">CS, AI focus"</text>
-
-            <!-- Arrow: Alex → LLM -->
-            <line x1="124" y1="150" x2="214" y2="150" stroke="#c8c0b0" stroke-width="1.5"/>
-            <polygon points="214,145 224,150 214,155" fill="#c8c0b0"/>
-
-            <!-- LLM Agent — center hub -->
-            <rect x="226" y="96" width="160" height="108" rx="12" fill="#1a1a2e" stroke="#7c3aed" stroke-width="2.5"/>
-            <text x="306" y="122" fill="#a78bfa" font-size="9" text-anchor="middle" letter-spacing="0.8">LLM AGENT</text>
-            <text x="306" y="144" fill="#ffffff" font-size="26" text-anchor="middle">🤖</text>
-            <text x="306" y="168" fill="#c4b5fd" font-size="10" text-anchor="middle">understands intent</text>
-            <text x="306" y="182" fill="#c4b5fd" font-size="10" text-anchor="middle">decides what to call</text>
-
-            <!-- Arrow: LLM → College Advisor (top right) -->
-            <line x1="386" y1="124" x2="476" y2="64" stroke="#e8873a" stroke-width="1.8"/>
-            <polygon points="470,58 482,62 474,72" fill="#e8873a"/>
-            <text x="440" y="82" fill="#e8873a" font-size="9" text-anchor="middle">calls</text>
-
-            <!-- College Advisor box (top right) -->
-            <rect x="480" y="20" width="200" height="80" rx="8" fill="#0f1117" stroke="#e8873a" stroke-width="2"/>
-            <text x="580" y="44" fill="#e8873a" font-size="9" text-anchor="middle" letter-spacing="0.5">COLLEGE ADVISOR MODEL</text>
-            <text x="580" y="62" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">🧠 Built in 17A + 17B</text>
-            <text x="580" y="78" fill="#f0c070" font-size="10" text-anchor="middle">matches student → schools</text>
-
-            <!-- Arrow: LLM → Web Search (bottom right) -->
-            <line x1="386" y1="176" x2="476" y2="224" stroke="#3a7be8" stroke-width="1.8"/>
-            <polygon points="470,230 482,226 474,216" fill="#3a7be8"/>
-            <text x="440" y="215" fill="#3a7be8" font-size="9" text-anchor="middle">searches</text>
-
-            <!-- Web Search box (bottom right) -->
-            <rect x="480" y="200" width="200" height="80" rx="8" fill="#eef2ff" stroke="#3a7be8" stroke-width="1.5"/>
-            <text x="580" y="224" fill="#2a5ab8" font-size="9" text-anchor="middle" letter-spacing="0.5">WEB SEARCH</text>
-            <text x="580" y="242" fill="#0f1117" font-size="11" font-weight="700" text-anchor="middle">🔍 Live college data</text>
-            <text x="580" y="258" fill="#4b6cb7" font-size="10" text-anchor="middle">rankings · aid · deadlines</text>
-
-            <!-- Return arrows back to LLM -->
-            <line x1="480" y1="72" x2="396" y2="132" stroke="#e8873a" stroke-width="1.2" stroke-dasharray="4,3"/>
-            <line x1="480" y1="228" x2="396" y2="168" stroke="#3a7be8" stroke-width="1.2" stroke-dasharray="4,3"/>
-
-            <!-- Return arrow: LLM → Alex with answer -->
-            <line x1="226" y1="180" x2="124" y2="180" stroke="#38b07a" stroke-width="2"/>
-            <polygon points="124,175 114,180 124,185" fill="#38b07a"/>
-            <rect x="114" y="192" width="220" height="36" rx="6" fill="#edfaf3" stroke="rgba(56,176,122,0.3)" stroke-width="1"/>
-            <text x="224" y="208" fill="#2a7a4b" font-size="9" text-anchor="middle" font-weight="700">"Cal Poly SLO is your best match —</text>
-            <text x="224" y="222" fill="#2a7a4b" font-size="9" text-anchor="middle">strong CS, Bay Area ties, 78% aid likelihood"</text>
-
-            <!-- Result label -->
-            <text x="306" y="226" fill="#38b07a" font-size="10" text-anchor="middle" font-weight="700">→ generates personalized advice</text>
-
-          </svg>
-        </div>
       </div>
     </div>
-
   </div><!-- end stages -->
     </div>
   </div>
